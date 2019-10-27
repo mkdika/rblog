@@ -13,8 +13,9 @@ Simple Ruby on Rails 5 blog application sample project.
 - [RSpec 3](http://rspec.info/), BDD and test suite.
 - [Bulma CSS](https://bulma.io/), mobile first CSS framework.
 - [Postgresql 10](https://www.postgresql.org/)
+- [Vagrant](https://www.vagrantup.com), for development provisioning. Use [Ubuntu 18.04](http://releases.ubuntu.com/18.04/) based.
+- [Ansible](https://www.ansible.com/), for automate and simply Vagrant provision.
 
 ## Copyright and License
 
-Copyright 2019 Maikel Chandika (mkdika@gmail.com). Code released under the
-MIT License. See [LICENSE](/LICENSE) file.
+Copyright 2019 Maikel Chandika (mkdika@gmail.com). Code released under the MIT License. See [LICENSE](/LICENSE) file.
