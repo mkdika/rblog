@@ -1,0 +1,174 @@
+- name: Vagrant Rails apps development
+  hosts: all
+  user: vagrant
+  become: yes
+  gather_facts: yes
+
+  tasks:
+
+    - name: Install essential apps and tools
+      apt:
+        name: '{{ item }}'
+        state: present
+        update-cache: yes
+      with_items:
+        - htop
+        - curl
+        - vim
+        - lsof
+        - unzip
+        - p7zip-full
+        - postgresql-client
+        - gnupg
+        - software-properties-common
+      become: yes
+
+
+      # Python3
+      # =======
+    - name: Python3 - Install pip3 & Virtual env
+      apt:
+        name: '{{ item }}'
+        force: yes
+        state: present
+      with_items:
+        - python3-pip
+      become: yes
+      tags: python3
+
+    - name: Python3 - Make python3 alias
+      blockinfile:
+        state: present
+        path: "/home/vagrant/.bashrc"
+        insertafter: EOF
+        block: |
+          alias python=python3
+          alias py=python3
+          alias pip=pip3
+      become: no
+      tags: python3
+      # END - Python Utils ===============
+
+
+      # Install Postgresql 10
+      # =====================
+    - name: Postgresql-10 - Install postgresql database and Dependencies
+      apt:
+        pkg: "{{ item }}"
+        update_cache: yes
+        state: present
+      with_items:
+      - postgresql-10
+      - postgresql-contrib-10
+      - libpq-dev
+      tags: postgresql
+
+    - name: Postgresql-10 - Install postgresql pip dependencies
+      pip:
+        name: psycopg2
+        state: present
+      tags: postgresql
+
+    - name: Postgresql-10 - Passwordless login for postgres user
+      copy:
+        src: "pg_hba_local.conf"
+        dest: "/etc/postgresql/10/main/pg_hba.conf"
+        owner: postgres
+        group: postgres
+        mode: 0640
+      register: pg_hba
+      tags: postgresql
+
+    - name: Postgresql-10 - Add database user
+      become_user: postgres
+      postgresql_user:
+        name: postgres
+        role_attr_flags: SUPERUSER
+      tags: postgresql
+
+    - name: Postgresql-10 - Enable postgresql to be access from host
+      replace:
+        path: "/etc/postgresql/10/main/postgresql.conf"
+        regexp: "^#listen_addresses = 'localhost'"
+        replace: "listen_addresses = '*'"
+      become: yes
+      tags: postgresql
+
+    - name: Postgresql-10 - Enable and start postgresql
+      systemd:
+        name: postgresql.service
+        enabled: yes
+        state: started
+      tags: postgresql
+
+    - name: Postgresql-10 - Restart service after customization
+      service:
+        name: postgresql.service
+        state: restarted
+      tags: postgresql
+      # END - Install Postgresql 10 ===============
+    
+
+      # RUBY 2.5
+      # ========
+    - name: Ruby - Add gpg key
+      shell: "{{ item }}"
+      with_items:
+        - gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+        - apt-add-repository -y ppa:rael-gc/rvm
+      become: true
+      run_once: true
+      tags: ruby
+    
+    - name: Ruby - Install rvm
+      apt:
+        name: '{{ item }}'
+        state: present
+        update-cache: yes
+      become: true
+      with_items:
+        - rvm
+      tags: ruby
+
+    - name: Ruby - Install ruby 2.5.3
+      shell: "{{ item }}"
+      with_items:
+        - "/bin/bash --login -c '/usr/share/rvm/bin/rvm install ruby-2.5.3 --default'"
+      become_user: vagrant
+      tags: ruby
+
+    - name: Ruby - Update ruby bundler
+      shell: "{{ item }}"
+      with_items:
+        - "/bin/bash --login -c '/usr/share/rvm/rubies/ruby-2.5.3/bin/gem update --system'"
+        - "/bin/bash --login -c '/usr/share/rvm/rubies/ruby-2.5.3/bin/gem install bundler'"
+      become_user: vagrant 
+      tags: ruby
+
+    - name: Ruby - Install Rails & Gems
+      shell: "{{ item }}"
+      with_items:
+        - "/bin/bash --login -c '/usr/share/rvm/rubies/ruby-2.5.3/bin/bundle install'"
+      become_user: vagrant
+      args:
+        chdir: /vagrant
+      tags: ruby
+      # END - Install Ruby 2.5
+
+
+    - name: Auto change dir to project root
+      lineinfile:
+        dest: "/home/vagrant/.bashrc"
+        line: "cd /vagrant/"
+        insertafter: EOF
+      become: no
+
+    - name: Let them know
+      debug:
+        msg:
+          - '===================================================='
+          - '|                                                  |'
+          - '|            VAGRANT PROVISION FINISHED            |'
+          - '|                                                  |'
+          - '===================================================='
+      become: no
