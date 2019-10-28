@@ -42,6 +42,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Postgresql Server
   config.vm.network :forwarded_port, guest: 5432, host: 5433
 
+  # Rails
+  config.vm.network :forwarded_port, guest: 3000, host: 3000
+
   config.vm.network :private_network, ip: "10.10.10.12", virtualbox_intnet: true
 
   # Virtualbox config

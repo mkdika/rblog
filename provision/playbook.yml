@@ -107,17 +107,39 @@
         state: restarted
       tags: postgresql
       # END - Install Postgresql 10 ===============
+
+
+      # Nodejs 10 & Yarn
+      # ================
+    - name: Nodejs - Add apt repo
+      shell: "{{ item }}"
+      with_items:
+        - curl -sL https://deb.nodesource.com/setup_10.x | sudo bash
+      become: true
+      run_once: true
+      tags: nodejs
+
+    - name: Nodejs - Install nodejs & yarn
+      apt:
+        name: "{{ item }}"
+        state: present
+        update-cache: yes
+      become: true
+      with_items:
+        - nodejs
+        - yarn
+      tags: nodejs
+      # END - Install Nodejs & Yarn
     
 
       # RUBY 2.5
       # ========
     - name: Ruby - Add gpg key
-      shell: "{{ item }}"
-      with_items:
-        - gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-        - apt-add-repository -y ppa:rael-gc/rvm
+      shell: '{{ item }}'
       become: true
-      run_once: true
+      with_items:
+        - "gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB | bash"
+        - "apt-add-repository -y ppa:rael-gc/rvm"
       tags: ruby
     
     - name: Ruby - Install rvm
@@ -134,7 +156,6 @@
       shell: "{{ item }}"
       with_items:
         - "/bin/bash --login -c '/usr/share/rvm/bin/rvm install ruby-2.5.3 --default'"
-      become_user: vagrant
       tags: ruby
 
     - name: Ruby - Update ruby bundler
@@ -142,14 +163,12 @@
       with_items:
         - "/bin/bash --login -c '/usr/share/rvm/rubies/ruby-2.5.3/bin/gem update --system'"
         - "/bin/bash --login -c '/usr/share/rvm/rubies/ruby-2.5.3/bin/gem install bundler'"
-      become_user: vagrant 
       tags: ruby
 
     - name: Ruby - Install Rails & Gems
       shell: "{{ item }}"
       with_items:
         - "/bin/bash --login -c '/usr/share/rvm/rubies/ruby-2.5.3/bin/bundle install'"
-      become_user: vagrant
       args:
         chdir: /vagrant
       tags: ruby
