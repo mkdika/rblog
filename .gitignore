@@ -29,3 +29,6 @@
 *.log
 
 .vagrant
+.peru/*
+Vagrantfile
+provision/*
