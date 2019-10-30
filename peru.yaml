@@ -1,0 +1,7 @@
+imports:
+  vagrant-ruby-dev: ./
+
+git module vagrant-ruby-dev:
+  url: git@github.com:mkdika/vagrant-ruby-dev.git
+  rev: da169bbf3cd70c67b3993406086a03b8da1cead9
+  pick: [Vagrantfile, provision/]
