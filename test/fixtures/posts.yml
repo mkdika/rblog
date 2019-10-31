@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  permalink: MyString
+  title: MyString
+  content: MyText
+  release: false
+  release_date: 2019-10-31 10:45:47
+  category: one
+
+two:
+  permalink: MyString
+  title: MyString
+  content: MyText
+  release: false
+  release_date: 2019-10-31 10:45:47
+  category: two
