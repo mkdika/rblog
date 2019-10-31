@@ -10,7 +10,7 @@ Simple Ruby on Rails 5 blog application sample project.
 - [Ruby on Rails 5.2.3](https://rubyonrails.org/), web framework.
 - [Slim Templating 4](http://slim-lang.com/), HTML templating engine.
 - [Devise](https://github.com/plataformatec/devise), flexible authentication solution.
-- [RSpec 3](http://rspec.info/), BDD and test suite.
+- [RSpec Rails 3](https://relishapp.com/rspec/rspec-rails/v/3-9/docs), BDD and test suite.
 - [Bulma CSS](https://bulma.io/), mobile first CSS framework.
 - [Postgresql 10](https://www.postgresql.org/)
 - [Vagrant](https://www.vagrantup.com), for development provisioning. Use [Ubuntu 18.04](http://releases.ubuntu.com/18.04/) based.
