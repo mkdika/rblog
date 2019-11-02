@@ -32,3 +32,4 @@
 .peru/*
 Vagrantfile
 provision/*
+/coverage/*

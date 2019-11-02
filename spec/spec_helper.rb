@@ -23,6 +23,12 @@ require 'rails-controller-testing'
 # require 'support/database_cleaner.rb'
 require 'webmock/rspec'
 
+require 'simplecov'
+SimpleCov.start
+
+require 'codecov'
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
+
 Capybara.configure do |config|
   config.default_max_wait_time = 10 # seconds
 end
