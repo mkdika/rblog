@@ -1,6 +1,7 @@
 # rBlog
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
+[![codebeat badge](https://codebeat.co/badges/f8f21f7f-6d58-42bf-a229-2e222f5b0e53)](https://codebeat.co/projects/github-com-mkdika-rblog-master)
 
 Simple Ruby on Rails 5 blog application sample project.
 
