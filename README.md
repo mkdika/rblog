@@ -1,6 +1,7 @@
 # rBlog
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
+[![rails badge](https://img.shields.io/badge/rails-5.2.3-orange)](https://weblog.rubyonrails.org/2019/3/28/Rails-5-2-3-has-been-released/)
 [![codebeat badge](https://codebeat.co/badges/f8f21f7f-6d58-42bf-a229-2e222f5b0e53)](https://codebeat.co/projects/github-com-mkdika-rblog-master)
 [![Build Status](https://travis-ci.com/mkdika/rblog.svg?branch=master)](https://travis-ci.com/mkdika/rblog)
 [![Known Vulnerabilities](https://snyk.io/test/github/mkdika/rblog/badge.svg?targetFile=package.json)](https://snyk.io/test/github/mkdika/rblog?targetFile=package.json)
