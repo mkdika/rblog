@@ -76,3 +76,4 @@ gem 'awesome_rails_console'
 gem 'slim-rails'
 gem 'devise'
 gem 'cancancan'
+gem "bulma-rails", "~> 0.7.5"

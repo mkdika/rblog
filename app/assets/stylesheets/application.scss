@@ -12,8 +12,9 @@
  *
  *= require_tree .
  *= require_self
- *= 'bulma/css/bulma.css'
  */
+
+ @import "bulma";
 
 .field_with_errors {
   display: inline;

@@ -293,7 +293,7 @@ DEPENDENCIES
   awesome_rails_console
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
-  bulma-rails
+  bulma-rails (~> 0.7.5)
   byebug
   cancancan
   capybara (>= 2.15)
