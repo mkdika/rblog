@@ -19,8 +19,4 @@ test:
 
 production:
   <<: *default
-  database: rblog_production
-  username: <%= ENV["DATABASE_USERNAME"] %>
-  password: <%= ENV["DATABASE_PASSWORD"] %>
-  host: <%= ENV["DATABASE_HOST"] %>
-  port: <%= ENV["DATABASE_PORT"] %>
+  url: <%= ENV["DATABASE_URL"] %>
