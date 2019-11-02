@@ -9,18 +9,21 @@ before_install:
   - gem install bundler
   - bundle
 
+before_script:
+  - pip install --user codecov
+
 services:
   - postgresql
 
 env:
-  - DATABASE_USERNAME=postgres
-  - DATABASE_PASSWORD=
-  - DATABASE_HOST=127.0.0.1
-  - DATABASE_PORT=5432
+  - DATABASE_USERNAME=postgres DATABASE_PASSWORD= DATABASE_HOST=127.0.0.1 DATABASE_PORT=5432
 
 script:
   - rails db:setup
   - rspec
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 branches:
   only:
