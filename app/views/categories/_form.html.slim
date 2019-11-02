@@ -1,0 +1,9 @@
+= form_for @category do |f|
+  = link_to '< Back to Category list', categories_path
+  br
+  = f.label "Category name: "
+  = f.text_field :name
+    - if @category.errors[:name]
+      = @category.errors[:name].join(', ')
+  div
+    = f.submit button_text

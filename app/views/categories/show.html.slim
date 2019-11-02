@@ -1,0 +1,13 @@
+div
+  h2
+    | id: 
+    = @category.id
+div
+  | name: 
+  = @category.name
+div
+  = link_to '> Edit', edit_category_path(@category)
+div
+  = link_to '> Delete', category_path(@category), method: :delete, data: {confirm: "Confirmation to delete '#{@category.name}'?"}
+div
+  = link_to '< Back to category list', categories_path

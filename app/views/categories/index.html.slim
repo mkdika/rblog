@@ -1,0 +1,20 @@
+div
+  = link_to '> Add new', new_category_path(@category)
+br
+table border="1"
+  thead
+    tr
+      th id
+      th name
+  tbody
+    - @categories.each do |category|
+      tr
+        td
+          = category.id
+        td
+          = category.name
+        td
+          = link_to 'Detail', category_path(category)
+div
+  | Total data: 
+  b = @categories.size

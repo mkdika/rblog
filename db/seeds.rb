@@ -9,3 +9,6 @@
 categories = Category.create [{name: 'Ruby'}, {name: 'Java'}, {name: 'Kotlin'}]
 
 tags = Tag.create [{name: 'tutorial'},{name: 'poc'},{name: 'back-end'}] 
+
+post1 = Post.new title: 'Tutorial Ruby 2.5 Dasar', content: 'bla..bla..bla..', category: Category.first
+post1.save
