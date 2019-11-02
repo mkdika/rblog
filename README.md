@@ -27,6 +27,12 @@ Simple Ruby on Rails 5 blog application sample project.
 - Post blog, with category, tags, comments.
 - Mobile first view.
 
+## Online Demo
+
+- __Heroku__
+
+  This is from automatic build (CI/CD). Plese visit [here](https://simple-rblog.herokuapp.com).
+
 ## Copyright and License
 
 Copyright 2019 Maikel Chandika (mkdika@gmail.com). Code released under the MIT License. See [LICENSE](/LICENSE) file.
