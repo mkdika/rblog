@@ -74,6 +74,5 @@ gem 'simplecov', :require => false, :group => :test
 gem 'awesome_print', require: 'ap'
 gem 'awesome_rails_console'
 gem 'slim-rails'
-gem 'bulma-rails'
 gem 'devise'
 gem 'cancancan'
