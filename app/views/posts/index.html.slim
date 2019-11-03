@@ -1,2 +1,28 @@
-h1 Posts#index
-p Find me in app/views/posts/index.html.slim
+h3
+  | Posts
+div
+  = link_to '< Dashboard', '/'
+div
+  = link_to '> Add new', new_post_path(@post)
+br
+table border="1"
+  thead
+    tr
+      th id
+      th title
+      th release
+    tbody
+      - @posts.each do |post|
+        tr
+          td
+            = post.id
+          td
+            = post.title
+          td
+            = post.release
+          td
+            = link_to 'Detail', post_path(post)
+div
+  | Total data:
+  b = @posts.size
+          

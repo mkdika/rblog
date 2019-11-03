@@ -1,10 +1,13 @@
 class TagsController < ApplicationController
+
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   def index
     @tags = Tag.order(:id).all
   end
 
   def show
-    @tag = Tag.find params[:id]
+    @tag = current_tag
   end
 
   def new
@@ -12,11 +15,11 @@ class TagsController < ApplicationController
   end
 
   def edit
-    @tag = Tag.find params[:id]
+    @tag = current_tag
   end
 
   def destroy
-    tag = Tag.find params[:id]
+    tag = current_tag
     tag.destroy
     redirect_to tags_path, notice: "Tag '#{tag.name}' deleted"
   end
@@ -31,7 +34,7 @@ class TagsController < ApplicationController
   end
 
   def update
-    @tag = Tag.find params[:id]
+    @tag = current_tag
     if @tag.update tag_params
       redirect_to tags_path, notice: "Tag '#{@tag.name}' has been updated"
     else
@@ -41,7 +44,15 @@ class TagsController < ApplicationController
 
   private
 
+  def current_tag
+    @current_tag ||= Tag.find params[:id]
+  end
+
   def tag_params
     params.require(:tag).permit(:name)
+  end
+
+  def record_not_found
+    redirect_to tags_path, notice: 'Tag not found'
   end
 end

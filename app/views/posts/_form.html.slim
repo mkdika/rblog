@@ -1,0 +1,44 @@
+= form_for @post do |f|
+  .section
+    .container
+      = link_to '< Back to Post list', posts_path
+      br
+      br
+      .field
+        = f.label "Title", class: "label"
+        .control
+          = f.text_field :title
+          - if @post.errors[:title]
+            p.help.is-danger
+              = @post.errors[:title].join(', ')
+      .field
+        = f.label "Release", class: "label"
+        .control
+          = f.check_box :release
+          - if @post.errors[:release]
+            p.help.is-danger
+              = @post.errors[:title].join(', ')
+      .field
+        = f.label "Release Date", class: "label"
+        .control
+          = f.date_field :release_date
+          - if @post.errors[:release_date]
+            p.help.is-danger
+              = @post.errors[:release_date].join(', ')
+      .field
+        = f.label "Category", class: "label"
+        .control
+          = f.collection_select :category, @categories, :id, :name, include_blank: false
+          - if @post.errors[:category]
+            p.help.is-danger
+              = @post.errors[:category].join(', ')
+      .field
+        = f.label "Content", class: "label"
+        .control
+          = f.text_area :content, rows: 10 
+          - if @post.errors[:content]
+            p.help.is-danger
+              = @post.errors[:content].join(', ')
+
+      div
+        = f.submit button_text, class: "button is-primary is-rounded"

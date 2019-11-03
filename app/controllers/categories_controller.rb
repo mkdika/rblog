@@ -1,10 +1,13 @@
 class CategoriesController < ApplicationController
+
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   def index
     @categories = Category.order(:id).all
   end
 
   def show
-    @category = Category.find params[:id]
+    @category = current_category
   end
 
   def new
@@ -12,11 +15,11 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find params[:id]
+    @category = current_category
   end
 
   def destroy
-    category = Category.find params[:id]
+    category = current_category
     category.destroy
     redirect_to categories_path, notice: "Category '#{category.name}' deleted"
   end
@@ -31,7 +34,7 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    @category = Category.find params[:id]
+    @category = current_category
     if @category.update category_params
       redirect_to categories_path, notice: "Category '#{@category.name}' has been updated"
     else
@@ -39,10 +42,17 @@ class CategoriesController < ApplicationController
     end
   end
 
-
   private
+
+  def current_category
+    @current_category ||= Category.find params[:id]
+  end
   
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def record_not_found
+    redirect_to categories_path, notice: 'Category not found'
   end
 end
