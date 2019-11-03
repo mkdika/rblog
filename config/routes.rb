@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
-    get '/', to: 'categories#index'
+    get '/', to: 'admin#index'
+
     resources :categories
+    resources :tags
+    resources :posts
 end

@@ -1,0 +1,24 @@
+h3
+  | Tags
+div
+  = link_to '< Dashboard', '/'
+div
+  = link_to '> Add new', new_tag_path(@category)
+br
+table border="1"
+  thead
+    tr
+      th id
+      th name
+  tbody
+    - @tags.each do |tag|
+      tr
+        td
+          = tag.id
+        td
+          = tag.name
+        td
+          = link_to 'Detail', tag_path(tag)
+div
+  | Total data: 
+  b = @tags.size

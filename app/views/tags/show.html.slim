@@ -1,0 +1,13 @@
+div
+  h2
+    | id: 
+    = @tag.id
+div
+  | name: 
+  = @tag.name
+div
+  = link_to '> Edit', edit_tag_path(@tag)
+div
+  = link_to '> Delete', tag_path(@tag), method: :delete, data: {confirm: "Confirmation to delete '#{@tag.name}'?"}
+div
+  = link_to '< Back to tag list', tags_path
