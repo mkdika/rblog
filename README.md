@@ -26,6 +26,7 @@ Simple Ruby on Rails 5 blog application sample project.
 - Multi user login and authorization.
 - Post blog, with category, tags, comments.
 - Mobile first view.
+- Support Internationalization (ID/EN)
 
 ## Online Demo
 
