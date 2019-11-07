@@ -39,6 +39,11 @@ group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers', '~> 2.8.0', require: false
   gem 'webmock'
+  gem 'rubocop', '~> 0.76.0', require: false
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+
 end
 
 group :development do
