@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
@@ -12,7 +11,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @categories = Category.order(:name).all
   end
 
   def edit
@@ -30,7 +28,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: "Post '#{@post.title}' has been added"
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -39,7 +37,7 @@ class PostsController < ApplicationController
     if @post.update post_params
       redirect_to posts_path, notice: "Post '#{@post.title}' has been updated"
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -50,7 +48,13 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :release, :release_date, :category)
+    params.require(:post).permit(
+      :title,
+      :content,
+      :release,
+      :release_date,
+      :category_id
+    )
   end
 
   def record_not_found

@@ -1,2 +1,26 @@
-h1 Posts#show
-p Find me in app/views/posts/show.html.slim
+div
+  h2
+    | id: 
+    = @post.id
+div
+  | title: 
+  = @post.title
+div
+  | release: 
+  = @post.release
+div
+  | release date: 
+  = @post.release_date
+div
+  | category: 
+  = @post.category.name
+div
+  | content: 
+  = @post.content
+
+div
+  = link_to '> Edit', edit_post_path(@post)
+div
+  = link_to '> Delete', post_path(@post), method: :delete, data: {confirm: "Confirmation to delete '#{@post.title}'?"}
+div
+  = link_to '< Back to post list', posts_path

@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
@@ -29,7 +28,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to categories_path, notice: "Category '#{@category.name}' has been added"
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -38,7 +37,7 @@ class CategoriesController < ApplicationController
     if @category.update category_params
       redirect_to categories_path, notice: "Category '#{@category.name}' has been updated"
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -47,7 +46,7 @@ class CategoriesController < ApplicationController
   def current_category
     @current_category ||= Category.find params[:id]
   end
-  
+
   def category_params
     params.require(:category).permit(:name)
   end

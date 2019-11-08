@@ -3,8 +3,7 @@ class Post < ApplicationRecord
   has_many :tag
   has_many :comment, dependent: :destroy
 
-  validates :permalink, :title, :content, presence: true
-  validates :permalink, uniqueness: true
+  validates :title, :content, presence: true
 
   attribute :release, default: false
 
