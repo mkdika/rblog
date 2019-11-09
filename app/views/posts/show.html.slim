@@ -15,9 +15,11 @@ div
   | category: 
   = @post.category.name
 div
-  | content: 
-  = @post.content
-
+  b
+    | content:
+  br
+  == @post.content_to_html
+br
 div
   = link_to '> Edit', edit_post_path(@post)
 div

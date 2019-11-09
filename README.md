@@ -27,6 +27,7 @@ Simple Ruby on Rails 5 blog application sample project.
 - Post blog, with category, tags, comments.
 - Mobile first view.
 - Support Internationalization (ID/EN)
+- Markdown as blog's content markup language.
 
 ## Online Demo
 

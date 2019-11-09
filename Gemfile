@@ -37,24 +37,21 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker', '1.9.1'
   gem 'pry'
-  gem 'shoulda-matchers', '~> 2.8.0', require: false
-  gem 'webmock'
   gem 'rubocop', '~> 0.76.0', require: false
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
-
+  gem 'shoulda-matchers', '~> 2.8.0', require: false
+  gem 'webmock'
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'meta_request'
+  gem 'rb-readline'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rb-readline'
-  gem 'meta_request'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
@@ -78,7 +75,12 @@ gem 'simplecov', :require => false, :group => :test
 # Project Related Gems
 gem 'awesome_print', require: 'ap'
 gem 'awesome_rails_console'
+gem 'bulma-extensions-rails'
 gem 'bulma-rails', '~> 0.7.5'
 gem 'cancancan'
+gem 'coderay'
 gem 'devise'
+gem 'font-awesome-rails'
+gem 'redcarpet'
 gem 'slim-rails'
+gem 'tinymce-rails'
