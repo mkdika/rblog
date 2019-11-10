@@ -1,5 +1,29 @@
 {
   "name": "rblog",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bulma": "^0.7.5",
+    "bulma-extensions": "^6.2.7"
+  },
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE) [![rails badge](https://img.shields.io/badge/rails-5.2.3-brightgreen)](https://weblog.rubyonrails.org/2019/3/28/Rails-5-2-3-has-been-released/) [![codebeat badge](https://codebeat.co/badges/f8f21f7f-6d58-42bf-a229-2e222f5b0e53)](https://codebeat.co/projects/github-com-mkdika-rblog-master) [![codecov](https://codecov.io/gh/mkdika/rblog/branch/master/graph/badge.svg)](https://codecov.io/gh/mkdika/rblog) [![Build Status](https://travis-ci.com/mkdika/rblog.svg?branch=master)](https://travis-ci.com/mkdika/rblog) [![Known Vulnerabilities](https://snyk.io/test/github/mkdika/rblog/badge.svg?targetFile=package.json)](https://snyk.io/test/github/mkdika/rblog?targetFile=package.json)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkdika/rblog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mkdika/rblog/issues"
+  },
+  "homepage": "https://github.com/mkdika/rblog#readme"
 }

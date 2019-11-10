@@ -35,13 +35,9 @@
             td
               | :
             td = @post.category.name
-    / article.media
-    /   .media-content
-    /     .content
-    /       == @post.content_to_html
     article.message.is-dark
       .message-header
-        | Content:
+        | Content
       .message-body
         .content
           == @post.content_to_html

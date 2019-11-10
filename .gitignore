@@ -33,3 +33,4 @@
 Vagrantfile
 provision/*
 /coverage/*
+/node_modules

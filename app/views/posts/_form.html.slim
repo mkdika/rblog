@@ -2,35 +2,38 @@
   .field
     = f.label "Title", class: "label"
     .control
-      = f.text_field :title, class: "input"
+      = f.text_field :title, class: "input #{@post.errors[:title].any? ? 'is-danger' : ''}"
       - if @post.errors[:title]
         p.help.is-danger
           = @post.errors[:title].join(', ')
-  .field
-    = f.label "Release", class: "label"
-    .control
-      .field.is-grouped
+  .level
+    .level-left
+      .field
         .control
-          = f.check_box :release, class: "checkbox"
-          - if @post.errors[:release]
-            p.help.is-danger
-              = @post.errors[:title].join(', ')
-        .control
-          = f.date_field :release_date
-          - if @post.errors[:release_dkwate]
-            p.help.is-danger
-              = @post.errors[:release_date].join(', ')
-  .field
-    = f.label "Category", class: "label"
-    .control
-      = f.collection_select :category_id, Category.order(:name).all, :id, :name, include_blank: false
-      - if @post.errors[:category_id]
-        p.help.is-danger
-          = @post.errors[:category_id].join(', ')
+          = f.check_box :release, {class: 'switch is-rtl is-rounded is-success'}
+          = f.label :release, class: "label"
+    .level-right
+      .field.is-horizontal
+        .field-label.is-normal
+          = f.label "Date", class: "label"
+        .field-body
+          .field
+            p.control
+              = f.date_field :release_date, class: "input"
+  .level
+    .level-left
+      .field.is-horizontal
+        .field-label.is-normal
+          = f.label "Category", class: "label"
+        .field-body
+          .field
+            .control
+              .select
+                = f.collection_select :category_id, Category.order(:name).all, :id, :name, include_blank: false
   .field
     = f.label "Content", class: "label"
     .control
-      = f.text_area :content, size: "100x12", class: 'textarea'
+      = f.text_area :content, rows: 20, class: "textarea #{ @post.errors[:content].any? ? 'is-danger' : ''}"
       - if @post.errors[:content]
         p.help.is-danger
           = @post.errors[:content].join(', ')
