@@ -9,9 +9,6 @@
             h1.subtitle.is-4
               span.has-text-grey-light
                 = area :title, "..."
-        - if flash[:notice]
-          .notification.is-info.is-full
-            = flash[:notice]
         .columns.is-multiline
           = area :content do
 

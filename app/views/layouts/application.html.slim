@@ -11,4 +11,12 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
+    - if flash[:notice]
+      .notification.is-info.is-full.has-text-centered
+        button.delete
+        = flash[:notice]
+    - if alert
+      .notification.is-warning.is-full.has-text-centered
+        button.delete
+        = alert
     = yield
