@@ -14,7 +14,6 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require bulma-extensions
 
 document.addEventListener('DOMContentLoaded', () => {
   (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
