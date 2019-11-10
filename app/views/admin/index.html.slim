@@ -1,11 +1,5 @@
-h3
-  | Administrator dashboard
-br
-ul
-  li
-    = link_to '> Category', categories_path
-  li
-    = link_to '> Tag', tags_path
-  li
-    = link_to '> Post', posts_path
-
+- replace :title, "Dashboard"
+- replace :content do
+  .column
+    .div
+      | Welcome, Dashboard is not available yet!

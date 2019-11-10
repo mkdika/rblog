@@ -1,0 +1,30 @@
+nav.navbar.has-shadow
+  .navbar-brand
+    a.navbar-item href="/"
+      = image_tag "icon.png"
+    .navbar-burger.burger
+      span
+      span
+      span
+
+  .navbar-menu
+    .navbar-start
+      .navbar-item
+        div
+          b rBlog
+
+  .navbar-end
+    .navbar-item.has-dropdown.is-hoverable
+      .navbar-link
+        | Maikel Chandika
+      .navbar-dropdown.is-right
+        a.navbar-item
+          div
+            span.icon.is-small
+              i.fa.fa-user-circle-o
+            | &nbsp;&nbsp;Profile
+        a.navbar-item
+          div
+            span.icon.is-small
+              i.fa.fa-sign-out
+            | &nbsp;&nbsp;Sign out

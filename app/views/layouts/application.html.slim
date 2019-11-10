@@ -1,7 +1,9 @@
 doctype html
 html
   head
-    title rBlog
+    title 
+      ' rBlog |
+      = area :title, "..."
     meta name="viewport" content="width=device-width, initial-scale=1"
     = csrf_meta_tags
     = csp_meta_tag
@@ -9,23 +11,4 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    section.hero.is-primary
-      .hero-body
-        .container
-          h1.title
-            | rBlog
-          h2.subtitle
-            | a simple ruby on rails blog application
-    .section
-      .container
-        - if flash[:notice]
-          .notification.is-warning
-            = flash[:notice]
-        = yield
-    br
-    footer.footer.is-center
-      .content.has-text-centered
-        | rBlog is written with hand by Maikel Chandika (mkdika@gmail.com).
-        br
-        = link_to 'Source code', 'https://github.com/mkdika/rblog'
-        |  is licensed under MIT.
+    = yield

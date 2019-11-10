@@ -1,15 +1,10 @@
 = form_for @tag do |f|
-  .section
-    .container
-      = link_to '< Back to Tag list', tags_path
-      br
-      br
-      .field
-        = f.label "Tag name", class: "label"
-        .control
-          = f.text_field :name, class: "input"
-          - if @tag.errors[:name]
-            p.help.is-danger
-              = @tag.errors[:name].join(', ')
-      div
-        = f.submit button_text, class: "button is-primary is-rounded"
+  .field
+    = f.label "Name", class: "label"
+    .control
+      = f.text_field :name, class: "input #{ @tag.errors[:name].any? ? 'is-danger' : '' }"
+      - if @tag.errors[:name]
+        p.help.is-danger
+          = @tag.errors[:name].join(', ')
+  div
+    = f.submit button_text, class: "button is-primary is-rounded"

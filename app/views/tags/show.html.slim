@@ -1,14 +1,24 @@
-div
-  h2
-    | id: 
-    = @tag.id
-div
-  | name: 
-  = @tag.name
-br
-div
-  = link_to '> Edit', edit_tag_path(@tag)
-div
-  = link_to '> Delete', tag_path(@tag), method: :delete, data: {confirm: "Confirmation to delete '#{@tag.name}'?"}
-div
-  = link_to '< Back to tag list', tags_path
+- replace :title, "Tag"
+- replace :content do
+  .column
+    table.table.is-narrow.is-hoverable
+        tbody
+          tr
+            td.has-text-weight-semibold Id
+            td
+              | :
+            td = @tag.id
+          tr
+            td.has-text-weight-semibold Name
+            td
+              | :
+            td = @tag.name
+        
+    br
+    .field.is-grouped
+      p.control
+        div
+          = link_to 'Edit', edit_tag_path(@tag), class: "button is-primary is-rounded"
+      p.control
+        div
+          = link_to 'Delete', tag_path(@tag), method: :delete, class: "button is-warning is-rounded", data: {confirm: "Confirmation to delete '#{@tag.name}'?"}

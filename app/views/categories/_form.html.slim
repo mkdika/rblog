@@ -1,15 +1,10 @@
 = form_for @category do |f|
-  .section
-    .container
-      = link_to '< Back to Category list', categories_path
-      br
-      br
-      .field
-        = f.label "Category name", class: "label"
-        .control
-          = f.text_field :name, class: "input"
-          - if @category.errors[:name]
-            p.help.is-danger
-              = @category.errors[:name].join(', ')
-      div
-        = f.submit button_text, class: "button is-primary is-rounded"
+  .field
+    = f.label "Name", class: "label"
+    .control
+      = f.text_field :name, class: "input #{ @category.errors[:name].any? ? 'is-danger' : '' }"
+      - if @category.errors[:name]
+        p.help.is-danger
+          = @category.errors[:name].join(', ')
+  div
+    = f.submit button_text, class: "button is-primary is-rounded"

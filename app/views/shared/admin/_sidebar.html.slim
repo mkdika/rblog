@@ -1,0 +1,28 @@
+.column.is-4-tablet.is-3-desktop.is-2-widescreen
+  nav.menu
+    ul.menu-list
+      li
+        a href="/" class="#{'is-active' if @dashboard}"
+          span.icon
+            i.fa.fa-tachometer
+          | &nbsp;Dashboard
+      li
+        a href="#{categories_path}" class="#{'is-active' if @categories || @category}"
+          span.icon
+            i.fa.fa-list
+          | &nbsp;Categories
+      li
+        a href="#{tags_path}" class="#{'is-active' if @tags || @tag}"
+          span.icon
+            i.fa.fa-tags
+          | &nbsp;Tags
+      li
+        a href="#{posts_path}" class="#{'is-active' if @posts || @post}"
+          span.icon
+            i.fa.fa-file
+          | &nbsp;Posts
+      li
+        a href="#" class="#{'is-active' if @comments || @comment}"
+          span.icon
+            i.fa.fa-comment
+          | &nbsp;Comments

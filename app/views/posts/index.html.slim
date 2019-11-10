@@ -1,28 +1,27 @@
-h3
-  | Posts
-div
-  = link_to '< Dashboard', '/'
-div
-  = link_to '> Add new', new_post_path(@post)
-br
-table border="1"
-  thead
-    tr
-      th id
-      th title
-      th release
-    tbody
-      - @posts.each do |post|
-        tr
-          td
-            = post.id
-          td
-            = post.title
-          td
-            = post.release
-          td
-            = link_to 'Detail', post_path(post)
-div
-  | Total data: 
-  b = @posts.size
-          
+- replace :title, "Posts"
+- replace :content do
+  .column
+      div
+        = link_to 'New', new_post_path(@post), class: "button is-rounded is-primary"
+      br
+      table.table.is-striped.is-narrow
+        thead
+          tr
+            th Category
+            th Title
+            th Release
+        tbody
+          - @posts.each do |post|
+            tr
+              td
+                = post.category.name
+              td
+                = post.title
+              td
+                span class="tag is-medium #{post.release ? 'is-success' : 'is-light'}"
+                 = post.release
+              td
+                = link_to 'detail', post_path(post), class: "button is-info"
+      div
+        | Size:  
+        b = @posts.size

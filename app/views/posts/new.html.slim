@@ -1,4 +1,4 @@
-h3
-  | Add new Post
-
-= render partial: 'form', locals: {button_text: 'Save new'}
+- replace :title, "Post (New)"
+- replace :content do
+  .column.is-full
+    = render partial: 'form', locals: {button_text: 'Create'}

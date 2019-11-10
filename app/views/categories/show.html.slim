@@ -1,14 +1,24 @@
-div
-  h2
-    | id: 
-    = @category.id
-div
-  | name: 
-  = @category.name
-br
-div
-  = link_to '> Edit', edit_category_path(@category)
-div
-  = link_to '> Delete', category_path(@category), method: :delete, data: {confirm: "Confirmation to delete '#{@category.name}'?"}
-div
-  = link_to '< Back to category list', categories_path
+- replace :title, "Category"
+- replace :content do
+  .column
+    table.table.is-narrow.is-hoverable
+        tbody
+          tr
+            td.has-text-weight-semibold Id
+            td
+              | :
+            td = @category.id
+          tr
+            td.has-text-weight-semibold Name
+            td
+              | :
+            td = @category.name
+        
+    br
+    .field.is-grouped
+      p.control
+        div
+          = link_to 'Edit', edit_category_path(@category), class: "button is-primary is-rounded"
+      p.control
+        div
+          = link_to 'Delete', category_path(@category), method: :delete, class: "button is-warning is-rounded", data: {confirm: "Confirmation to delete '#{@category.name}'?"}

@@ -1,4 +1,4 @@
-h3
-  | Edit category
-
-= render partial: 'form', locals: {button_text: 'Save edit'}
+- replace :title, "Category (Edit)"
+- replace :content do
+  .column.is-4
+    = render partial: 'form', locals: {button_text: 'Update'}

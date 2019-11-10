@@ -1,28 +1,55 @@
-div
-  h2
-    | id: 
-    = @post.id
-div
-  | title: 
-  = @post.title
-div
-  | release: 
-  = @post.release
-div
-  | release date: 
-  = @post.release_date
-div
-  | category: 
-  = @post.category.name
-div
-  b
-    | content:
-  br
-  == @post.content_to_html
-br
-div
-  = link_to '> Edit', edit_post_path(@post)
-div
-  = link_to '> Delete', post_path(@post), method: :delete, data: {confirm: "Confirmation to delete '#{@post.title}'?"}
-div
-  = link_to '< Back to post list', posts_path
+- replace :title, "Post"
+- replace :content do
+  .column
+    table.table.is-narrow.is-hoverable
+        tbody
+          tr
+            td.has-text-weight-semibold Id
+            td
+              | :
+            td = @post.id
+          tr
+            td.has-text-weight-semibold Title
+            td
+              | :
+            td = @post.title
+          tr
+            td.has-text-weight-semibold Permalink
+            td
+              | :
+            td = @post.permalink
+          tr
+            td.has-text-weight-semibold Release
+            td
+              | :
+            td
+              span class="tag #{@post.release ? 'is-success' : 'is-light'}"
+                = @post.release    
+          tr
+            td.has-text-weight-semibold Release Date
+            td
+              | :
+            td = @post.release_date
+          tr
+            td.has-text-weight-semibold Category
+            td
+              | :
+            td = @post.category.name
+    / article.media
+    /   .media-content
+    /     .content
+    /       == @post.content_to_html
+    article.message.is-dark
+      .message-header
+        | Content:
+      .message-body
+        .content
+          == @post.content_to_html
+    br
+    .field.is-grouped
+      p.control
+        div
+          = link_to 'Edit', edit_post_path(@post), class: "button is-primary is-rounded"
+      p.control
+        div
+          = link_to 'Delete', post_path(@post), method: :delete, class: "button is-warning is-rounded", data: {confirm: "Confirmation to delete '#{@post.title}'?"}

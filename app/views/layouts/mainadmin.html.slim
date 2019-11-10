@@ -1,0 +1,18 @@
+= extends :application do
+  = render 'shared/admin/header'
+  section.section
+    .columns
+      = render 'shared/admin/sidebar'
+      .column
+        .level
+          .level-left
+            h1.subtitle.is-4
+              span.has-text-grey-light
+                = area :title, "..."
+        - if flash[:notice]
+          .notification.is-info.is-full
+            = flash[:notice]
+        .columns.is-multiline
+          = area :content do
+
+  = render 'shared/admin/footer'

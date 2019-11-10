@@ -1,4 +1,4 @@
-h3
-  | Edit Post
-
-= render partial: 'form', locals: {button_text: 'Save edit'}
+- replace :title, "Post (Edit)"
+- replace :content do
+  .column.is-full
+    = render partial: 'form', locals: {button_text: 'Update'}

@@ -1,24 +1,20 @@
-h3
-  | Tags
-div
-  = link_to '< Dashboard', '/'
-div
-  = link_to '> Add new', new_tag_path(@category)
-br
-table border="1"
-  thead
-    tr
-      th id
-      th name
-  tbody
-    - @tags.each do |tag|
-      tr
-        td
-          = tag.id
-        td
-          = tag.name
-        td
-          = link_to 'Detail', tag_path(tag)
-div
-  | Total data: 
-  b = @tags.size
+- replace :title, "Tags"
+- replace :content do
+  .column
+      div
+        = link_to 'New', new_tag_path(@tag), class: "button is-rounded is-primary"
+      br
+      table.table.is-striped.is-narrow
+        thead
+          tr
+            th Name
+        tbody
+          - @tags.each do |tag|
+            tr
+              td
+                = tag.name
+              td
+                = link_to 'detail', tag_path(tag), class: "button is-info"
+      div
+        | Size:  
+        b = @tags.size

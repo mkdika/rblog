@@ -1,43 +1,38 @@
 = form_for @post do |f|
-  .section
-    .container
-      = link_to '< Back to Post list', posts_path
-      br
-      br
-      .field
-        = f.label "Title", class: "label"
+  .field
+    = f.label "Title", class: "label"
+    .control
+      = f.text_field :title, class: "input"
+      - if @post.errors[:title]
+        p.help.is-danger
+          = @post.errors[:title].join(', ')
+  .field
+    = f.label "Release", class: "label"
+    .control
+      .field.is-grouped
         .control
-          = f.text_field :title
-          - if @post.errors[:title]
-            p.help.is-danger
-              = @post.errors[:title].join(', ')
-      .field
-        = f.label "Release", class: "label"
-        .control
-          = f.check_box :release
+          = f.check_box :release, class: "checkbox"
           - if @post.errors[:release]
             p.help.is-danger
               = @post.errors[:title].join(', ')
-      .field
-        = f.label "Release Date", class: "label"
         .control
           = f.date_field :release_date
           - if @post.errors[:release_dkwate]
             p.help.is-danger
               = @post.errors[:release_date].join(', ')
-      .field
-        = f.label "Category", class: "label"
-        .control
-          = f.collection_select :category_id, Category.order(:name).all, :id, :name, include_blank: false
-          - if @post.errors[:category_id]
-            p.help.is-danger
-              = @post.errors[:category_id].join(', ')
-      .field
-        = f.label "Content", class: "label"
-        .control
-          = f.text_area :content, size: "100x12" 
-          - if @post.errors[:content]
-            p.help.is-danger
-              = @post.errors[:content].join(', ')
-      div
-        = f.submit button_text, class: "button is-primary is-rounded"
+  .field
+    = f.label "Category", class: "label"
+    .control
+      = f.collection_select :category_id, Category.order(:name).all, :id, :name, include_blank: false
+      - if @post.errors[:category_id]
+        p.help.is-danger
+          = @post.errors[:category_id].join(', ')
+  .field
+    = f.label "Content", class: "label"
+    .control
+      = f.text_area :content, size: "100x12", class: 'textarea'
+      - if @post.errors[:content]
+        p.help.is-danger
+          = @post.errors[:content].join(', ')
+  div
+    = f.submit button_text, class: "button is-primary is-rounded"
