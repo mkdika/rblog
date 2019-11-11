@@ -40,3 +40,10 @@ deploy:
   app: simple-rblog
   on:
     repo: mkdika/rblog
+
+notifications:
+  email:
+    recipients:
+      - mkdika@gmail.com
+    on_success: always
+    on_failure: always
