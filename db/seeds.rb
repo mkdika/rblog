@@ -12,3 +12,5 @@ tags = Tag.create [{name: 'tutorial'},{name: 'poc'},{name: 'back-end'}]
 
 post1 = Post.new title: 'Tutorial Ruby 2.5 Dasar', content: 'bla..bla..bla..', category: Category.first
 post1.save
+
+User.create!(email: 'admin@example.com', password: 'secret', password_confirmation: 'secret')

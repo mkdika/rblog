@@ -1,6 +1,6 @@
 nav.navbar.has-shadow
   .navbar-brand
-    a.navbar-item href="/admin"
+    a.navbar-item href="#{admin_index_path}"
       = image_tag "icon.png"
     .navbar-burger.burger
       span
@@ -23,7 +23,7 @@ nav.navbar.has-shadow
             span.icon.is-small
               i.fa.fa-user-circle-o
             | &nbsp;&nbsp;Profile
-        a.navbar-item
+        = link_to destroy_user_session_path, :method => :delete, class: "navbar-item" do
           div
             span.icon.is-small
               i.fa.fa-sign-out
