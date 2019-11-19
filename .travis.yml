@@ -39,7 +39,8 @@ deploy:
     secure: "gw9Tuwq0gjwECv+u3ejAWQRRQL7XgZjFjok7LMSKKWbhdwg82KH/8ZR4b1N1ZRDgGmuI/6FUMaBbJaJ+T7arzIpLPMPxGDmCF5iSsd/qn8LxC654iuGtcrYJmHE/19itGeFATk7sq6JkXAljnhwqfBxPul1FizWWe/XWzpz3wpJsK2pI31lNueEcGtuQQvd5STxWB9oZ7/fQMbcuiKSglgJkLB42rQVPJW7Lr3SszoraPMe3r/dWusEkJLkeFpTXNIXBTXtLoU16F8EB08bF4ruzxogHulI1+5rETFogzPpeyyvkTnGpiySo2SPNVBIGR4sLd1iVxSpWC21XsAL6aUrD32LTyc/kqvCrgg5YYPKkUpTe4RDewVE8ZUy9CgECb2ELXNIFEVODgvR4zrcHVkRLCz2CDGfudw2tsVH23L7tgrYHcyUJB3NvUXDkDq+hpRuHOzimcR2R1xnsE9kEzojUG9sbSOLMfiexuzjtICsnHEtILUpPv245fLR7i9qt9jd3DJMXT39SEmzGvwEYnlkuUvs5CbKjnKVCN5rWGUIlm0xK77gJCR+f8fWtiWdJv7qDJFFlzeSn9afJDQerTAjQVB1MnKsLR3sUdLG+2b8j/0dgcUDA5ctjAdCwKNYSoNo76d+SrosvASmzjbBZ+ifjAHZmG5qIA4DmtaYRm0A="
   # run commands after successful deploy to Heroku
   run:
-    - "rails db:reset"
+    - "rake db:migrate"
+    - "rake db:reseed"
   app: simple-rblog
   on:
     repo: mkdika/rblog
