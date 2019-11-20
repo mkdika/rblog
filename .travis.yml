@@ -40,6 +40,8 @@ deploy:
   # run commands after successful deploy to Heroku
   run:
     - "sleep 30"
+    - "pwd"
+    - "ls -lsh"
     - "rake db:migrate"
     - "rake db:reseed"
   app: simple-rblog
