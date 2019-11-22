@@ -12,7 +12,7 @@ This is my RoR full stack web development learning project & example, including 
 
 ## This project uses
 
-- [Ruby 2.5.3](https://www.ruby-lang.org/en/)
+- [Ruby 2.6.5](https://www.ruby-lang.org/en/)
 - [Ruby on Rails 5.2.3](https://rubyonrails.org/), web framework.
 - [Slim Templating 4](http://slim-lang.com/), HTML templating engine.
 - [Devise](https://github.com/plataformatec/devise), flexible authentication solution.
