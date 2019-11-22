@@ -7,9 +7,10 @@
 [![Build Status](https://travis-ci.com/mkdika/rblog.svg?branch=master)](https://travis-ci.com/mkdika/rblog)
 [![Known Vulnerabilities](https://snyk.io/test/github/mkdika/rblog/badge.svg?targetFile=package.json)](https://snyk.io/test/github/mkdika/rblog?targetFile=package.json)
 
-Simple Ruby on Rails 5 blog application sample project.
+Yet another simple Ruby on Rails 5 (RoR) blog application.
+This is my RoR full stack web development learning project & example, including how to setup its CI/CD and deployed into cloud.
 
-## Stacks
+## This project uses
 
 - [Ruby 2.5.3](https://www.ruby-lang.org/en/)
 - [Ruby on Rails 5.2.3](https://rubyonrails.org/), web framework.
@@ -18,12 +19,15 @@ Simple Ruby on Rails 5 blog application sample project.
 - [RSpec Rails 3](https://relishapp.com/rspec/rspec-rails/v/3-9/docs), BDD and test suite.
 - [Bulma CSS](https://bulma.io/), mobile first CSS framework.
 - [Postgresql 10](https://www.postgresql.org/)
+- [Peru](https://github.com/buildinspace/peru), a package manager for including other people's code in your projects.
 - [Vagrant](https://www.vagrantup.com), for development provisioning. Use [Ubuntu 18.04](http://releases.ubuntu.com/18.04/) based.
 - [Ansible](https://www.ansible.com/), for automate and simply Vagrant provision.
+- [Travis CI](https://travis-ci.org/), for CI & CD pipelines.
+- [Heroku](https://www.heroku.com/), for cloud deployment platform, host this apps for free :smile:
 
 ## Blog Features
 
-- Multi user login and authorization.
+- Multi user login, forget password recory, etc.
 - Post blog, with category, tags, comments.
 - Mobile first view.
 - Support Internationalization (ID/EN)
