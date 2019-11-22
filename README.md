@@ -8,7 +8,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/mkdika/rblog/badge.svg?targetFile=package.json)](https://snyk.io/test/github/mkdika/rblog?targetFile=package.json)
 
 Yet another simple Ruby on Rails 5 (RoR) blog application.
-This is my RoR full stack web development learning project & example, including how to setup its CI/CD and deployed into cloud.
+This is my RoR full stack web development learning project & example, including its automatic CI/CD setup and deployed into cloud.
 
 ## This project uses
 
@@ -37,7 +37,11 @@ This is my RoR full stack web development learning project & example, including 
 
 - __Heroku__
 
-  This is from automatic build (CI/CD). Plese visit [here](https://simple-rblog.herokuapp.com).
+  This is from automatic build (CI/CD). Plese visit [https://simple-rblog.herokuapp.com](https://simple-rblog.herokuapp.com)
+
+  Demo account: 
+  - email: `admin@example.com`
+  - password: `admin`
 
 ## Copyright and License
 
