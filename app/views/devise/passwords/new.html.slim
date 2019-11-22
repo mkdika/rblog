@@ -1,0 +1,23 @@
+- replace :title, "Forgot password"
+section.hero.is-primary.is-fullheight
+  .hero-body
+    .container
+      .columns.is-centered
+        .column.is-5-tablet.is-4-desktop.is-3.widescreen
+          .box
+            br
+            h6.title.is-6.has-text-centered.has-text-grey-darker
+              | Forgot your password?
+            = form_for(resource, as: resource_name, url: password_path(resource_name), html:{ method: :post }) do |f|
+              = render "devise/shared/error_messages", resource: resource
+              .field
+                = f.label :email, class: "label"
+                .control
+                  = f.email_field :email, autofocus: true, autocomplete: "email", class: "input" 
+              .field
+                = f.submit "Send password instructions", class: "button is-info is-fullwidth"
+            br
+              .level
+                .level-left
+                  .is-size-7
+                    = render "devise/shared/links"

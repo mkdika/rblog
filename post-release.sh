@@ -1,9 +1,8 @@
 #!/bin/bash
-echo '==============='
-echo ' DB  Migration '
-echo '  Post Script  '
-echo '==============='
-echo 'Processing..'
+echo '======================'
+echo '  Heroku Post Script  '
+echo '======================'
 sleep 30
 bin/rails db:migrate
 bin/rails db:reseed
+echo '---=={{ DONE! }} ==---'

@@ -1,0 +1,31 @@
+- replace :title, "Login"
+section.hero.is-primary.is-fullheight
+  .hero-body
+    .container
+      .columns.is-centered
+        .column.is-5-tablet.is-4-desktop.is-3.widescreen
+          .box
+            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+              .field
+                = f.label :email, class: "label"
+                .control.has-icons-left
+                  = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "e.g. johndoe@gmail.com", class: "input"
+                  span.icon.is-small.is-left
+                    i.fa.fa-envelope
+              .field
+                = f.label :password, class: "label"
+                .control.has-icons-left
+                  = f.password_field :password, autocomplete: "current-password", placeholder: "******", class: "input"
+                  span.icon.is-small.is-left
+                    i.fa.fa-lock
+              - if devise_mapping.rememberable?
+                .field
+                  = f.check_box :remember_me
+                  | &nbsp;&nbsp;Remember me
+              .field
+                = f.submit "Login", class: "button is-info"
+            br
+            .level
+              .level-left
+                .is-size-7
+                  = render "devise/shared/links"
