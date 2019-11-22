@@ -1,1 +1,1 @@
-release: ./dbmigration.sh
+release: ./post-release.sh
