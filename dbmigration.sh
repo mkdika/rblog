@@ -5,5 +5,5 @@ echo '  Post Script  '
 echo '==============='
 echo 'Processing..'
 sleep 30
-rails db:migrate
-rails db:reseed
+bin/rails db:migrate
+bin/rails db:reseed
