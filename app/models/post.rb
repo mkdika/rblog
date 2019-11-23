@@ -7,8 +7,10 @@ class Post < ApplicationRecord
 
   attribute :release, default: false
 
+  before_save :permalink
+
   def permalink
-    "#{title.strip.downcase.gsub " ", "_"}"
+    super || self.permalink = "#{title.strip.downcase.gsub " ", "_"}"
   end
 
   def content_to_html

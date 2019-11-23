@@ -75,7 +75,7 @@ gem 'simplecov', :require => false, :group => :test
 # Project Related Gems
 gem 'awesome_print', require: 'ap'
 gem 'awesome_rails_console'
-gem 'bulma-rails', '~> 0.7.5'
+gem 'bulma-rails', '~> 0.8.0'
 gem 'bulma-extensions-rails'
 gem 'cancancan'
 gem 'coderay'

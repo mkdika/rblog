@@ -28,5 +28,24 @@ describe Post do
         expect(post.permalink).to eq 'ruby_is_awesome'
       end
     end
+
+    describe 'given valid title and generated permalink' do
+      let(:category) { Category.create name: 'Dumb'}
+
+      after do
+        post = Post.last
+        post.destroy
+        category.destroy
+      end
+    
+      it 'will save the permalink into database correctly' do
+        post = Post.new title: 'Dummy title 123', content: 'testing', category: category
+        post.save
+        generated_permalink = 'dummy_title_123'
+        expect(post.permalink).to eq generated_permalink
+        current_data = Post.where(permalink: generated_permalink)
+        expect(current_data.present?).to eq true
+      end
+    end
   end
 end

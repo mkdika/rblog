@@ -8,9 +8,9 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/mkdika/rblog/badge.svg?targetFile=package.json)](https://snyk.io/test/github/mkdika/rblog?targetFile=package.json)
 
 Yet another simple Ruby on Rails 5 (RoR) blog application.
-This is my RoR full stack web development learning project & example, including its automatic CI/CD setup and deployed into cloud.
+This is my RoR full stack web development learning project & example, including its automatic CI/CD setup and cloud platform deployment.
 
-## This project uses
+## This project use
 
 - [Ruby 2.6.5](https://www.ruby-lang.org/en/)
 - [Ruby on Rails 5.2.3](https://rubyonrails.org/), web framework.
