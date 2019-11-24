@@ -19,6 +19,11 @@
               | :
             td = @post.permalink
           tr
+            td.has-text-weight-semibold Created By
+            td
+              | :
+            td = @post.user.show_display_name
+          tr
             td.has-text-weight-semibold Release
             td
               | :
@@ -40,7 +45,7 @@
             td
               | :
             td
-              - @post.taggings.map {|t| t.tag.name }.each do |tagging|
+              - @post.taggings.map {|t| t.tag.name }.sort.each do |tagging|
                 span.tag.is-link.is-normal
                   = tagging
                 | &nbsp;

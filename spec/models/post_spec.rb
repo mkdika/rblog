@@ -31,15 +31,17 @@ describe Post do
 
     describe 'given valid title and generated permalink' do
       let(:category) { Category.create name: 'Dumb'}
+      let(:user) { User.create email: 'john@example.com', password: 'abc', password_confirmation: 'abc' }
 
       after do
         post = Post.last
         post.destroy
         category.destroy
+        user.destroy
       end
     
       it 'will save the permalink into database correctly' do
-        post = Post.new title: 'Dummy title 123', content: 'testing', category: category
+        post = Post.new title: 'Dummy title 123', content: 'testing', category: category, user: user
         post.save
         generated_permalink = 'dummy_title_123'
         expect(post.permalink).to eq generated_permalink
