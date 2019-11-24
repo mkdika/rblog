@@ -38,7 +38,7 @@
           .field
             .control
               .select.is-multiple
-                = f.select :taggings, Tag.order(:name).all.collect {|t| [t.name, t.id] }, {}, { :multiple => true, :size => 5 }
+                = f.select :tag_ids, Tag.order(:name).all.collect {|t| [t.name, t.id] }, {}, { :multiple => true, :size => 5 }
   .field
     = f.label "Content", class: "label"
     .control

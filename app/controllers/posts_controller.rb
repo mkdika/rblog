@@ -36,7 +36,6 @@ class PostsController < ApplicationController
 
   def update
     @post = current_post
-    binding.pry
     if @post.update post_params
       redirect_to posts_path, notice: "Post '#{@post.title}' has been updated"
     else
@@ -57,7 +56,7 @@ class PostsController < ApplicationController
       :release,
       :release_date,
       :category_id,
-      tagging_ids: []
+      tag_ids: []
     )
   end
 

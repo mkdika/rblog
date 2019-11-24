@@ -1,7 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :category
-  has_many :taggings, dependent: :destroy
+  has_many :taggings
+  has_many :tags, through: :taggings, dependent: :destroy
   has_many :comments, dependent: :destroy
+  accepts_nested_attributes_for :taggings
 
   validates :title, :content, presence: true
 
