@@ -1,0 +1,27 @@
+- replace :title, "Users"
+- replace :content do
+  .column
+      div
+        = link_to 'New', new_user_path(@user), class: "button is-rounded is-primary"
+      br
+      table.table.is-striped.is-narrow
+        thead
+          tr
+            th Email
+            th Display name
+            th Locked
+        tbody
+          - @users.each do |user|
+            tr
+              td
+                = user.email
+              td
+                = user.show_display_name
+              td
+                span class="tag is-medium #{user.locked? ? 'is-danger' : 'is-success'}"
+                  = user.locked?
+              td
+                = link_to 'detail', user_path(user), class: "button is-info"
+      div
+        | Size:  
+        b = @users.size
