@@ -30,6 +30,15 @@
             .control
               .select
                 = f.collection_select :category_id, Category.order(:name).all, :id, :name, include_blank: false
+    .level-right
+      .field.is-horizontal
+        .field-label.is-normal
+          = f.label "Tags", class: "label"
+        .field-body
+          .field
+            .control
+              .select.is-multiple
+                = f.select :taggings, Tag.order(:name).all.collect {|t| [t.name, t.id] }, {}, { :multiple => true, :size => 5 }
   .field
     = f.label "Content", class: "label"
     .control

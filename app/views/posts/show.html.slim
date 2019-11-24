@@ -35,7 +35,16 @@
             td
               | :
             td = @post.category.name
-    article.message.is-dark
+          tr
+            td.has-text-weight-semibold Tags
+            td
+              | :
+            td
+              - @post.taggings.map {|t| t.tag.name }.each do |tagging|
+                span.tag.is-link.is-normal
+                  = tagging
+                | &nbsp;
+    cle.message.is-dark
       .message-header
         | Content
       .message-body

@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :category
-  has_many :tag
-  has_many :comment, dependent: :destroy
+  has_many :taggings, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :title, :content, presence: true
 
