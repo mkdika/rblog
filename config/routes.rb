@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :categories
     resources :tags
     resources :posts
-    resources :users
+    resources :users do
+      patch 'lock', on: :member
+    end
   end
 
   root to: "home#index"

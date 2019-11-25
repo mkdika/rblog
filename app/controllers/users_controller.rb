@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def destroy
     user = current_user
     user.destroy
-    redirect_to usrs_path, notice: "User '#{user.show_display_name}' deleted"
+    redirect_to users_path, notice: "User '#{user.show_display_name}' deleted"
   end
 
   def create
@@ -41,6 +41,18 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def lock
+    @user = current_user
+    if @user.locked?
+      @user.update locked_at: nil
+      status = 'un-locked'
+    else
+      @user.update locked_at: DateTime.now
+      status = 'locked'
+    end
+    redirect_to user_path @user, notice: "User '#{@user.show_display_name}' has been #{status}"
   end
 
   private

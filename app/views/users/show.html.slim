@@ -1,0 +1,38 @@
+- replace :title, "User"
+- replace :content do
+  .column
+    table.table.is-narrow.is-hoverable
+        tbody
+          tr
+            td.has-text-weight-semibold Id
+            td
+              | :
+            td = @user.id
+          tr
+            td.has-text-weight-semibold Email
+            td
+              | :
+            td = @user.email
+          tr
+            td.has-text-weight-semibold Display Name
+            td
+              | :
+            td = @user.display_name || '-'
+          tr
+            td.has-text-weight-semibold Locked Status
+            td
+              | :
+            td
+              span class="tag is-normal #{@user.locked? ? 'is-danger' : 'is-success'}"
+                = @user.locked?
+    br
+    .field.is-grouped
+      p.control
+        div
+          = link_to 'Edit', edit_user_path(@user), class: "button is-primary is-rounded"
+      p.control
+        div
+          = link_to 'Delete', user_path(@user), method: :delete, class: "button is-warning is-rounded", data: {confirm: "Confirmation to delete '#{@user.show_display_name}'?"}
+      p.control
+        div
+          = link_to "#{@user.locked? ? 'Un-lock User' : 'Lock User'}", lock_user_path(@user), method: :patch, class: "button is-info is-rounded"
