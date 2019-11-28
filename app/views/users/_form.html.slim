@@ -1,0 +1,27 @@
+= form_for @user do |f|
+  .field
+    = f.label "Email", class: "label"
+    .control
+      = f.text_field :email, class: "input #{ @user.errors[:email].any? ? 'is-danger' : '' }"
+      - if @user.errors[:email]
+        p.help.is-danger
+          = @user.errors[:email].join(', ')
+  .field
+    = f.label "Display name", class: "label"
+    .control
+      = f.text_field :display_name, class: "input"
+  .field
+    = f.label "Locked at", class: "label"
+    .control
+      = f.datetime_field :locked_at, class: "input"
+  .field
+    = f.label "Password", class: "label"
+    .control
+      = f.password_field :password, class: "input"
+  .field
+    = f.label "Password Confirmation", class: "label"
+    .control
+      = f.password_field :password_confirmation, class: "input"
+
+  div
+    = f.submit button_text, class: "button is-primary is-rounded"
