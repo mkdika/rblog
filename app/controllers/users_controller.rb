@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      redirect_to user_path @user, notice: "User '#{@user.show_display_name}' has been added"
+      redirect_to user_path(@user), notice: "User '#{@user.show_display_name}' has been added"
     else
       render 'new'
     end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def update
     @user = current
     if @user.update user_params
-      redirect_to user_path @user, notice: "User '#{@user.show_display_name}' has been updated"
+      redirect_to user_path(@user), notice: "User '#{@user.show_display_name}' has been updated"
     else
       render 'edit'
     end

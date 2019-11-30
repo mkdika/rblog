@@ -29,7 +29,7 @@ class TagsController < ApplicationController
   def create
     @tag = Tag.new tag_params
     if @tag.save
-      redirect_to tag_path @tag, notice: "Tag '#{@tag.name}' has been added"
+      redirect_to tag_path(@tag), notice: "Tag '#{@tag.name}' has been added"
     else
       render "new"
     end
@@ -38,7 +38,7 @@ class TagsController < ApplicationController
   def update
     @tag = current_tag
     if @tag.update tag_params
-      redirect_to tag_path @tag, notice: "Tag '#{@tag.name}' has been updated"
+      redirect_to tag_path(@tag), notice: "Tag '#{@tag.name}' has been updated"
     else
       render "edit"
     end
