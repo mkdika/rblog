@@ -1,9 +1,10 @@
 class TagsController < ApplicationController
   layout 'mainadmin'
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :set_paper_trail_whodunnit
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
+    current_user
     @tags = Tag.order(:id).all
   end
 
@@ -41,6 +42,12 @@ class TagsController < ApplicationController
     else
       render "edit"
     end
+  end
+
+  def audit_trail
+    tag = current_tag
+    @audit_trail = ApplicationHelper::AuditTrail.to_model tag.versions
+    render 'shared/audit_trail'
   end
 
   private

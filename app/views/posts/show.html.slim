@@ -63,3 +63,6 @@
       p.control
         div
           = link_to 'Delete', post_path(@post), method: :delete, class: "button is-warning is-rounded", data: {confirm: "Confirmation to delete '#{@post.title}'?"}
+      p.control
+        div
+          = link_to 'Audit Trail', audit_trail_post_path(@post), class: "button is-info is-rounded"

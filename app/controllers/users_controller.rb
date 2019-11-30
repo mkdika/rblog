@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   layout 'mainadmin'
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :set_paper_trail_whodunnit
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = current
   end
 
   def new
@@ -16,11 +16,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = current
   end
 
   def destroy
-    user = current_user
+    user = current
     user.destroy
     redirect_to users_path, notice: "User '#{user.show_display_name}' deleted"
   end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
+    @user = current
     if @user.update user_params
       redirect_to user_path @user, notice: "User '#{@user.show_display_name}' has been updated"
     else
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def lock
-    @user = current_user
+    @user = current
     if @user.locked?
       @user.update locked_at: nil
       status = 'un-locked'
@@ -55,10 +55,16 @@ class UsersController < ApplicationController
     redirect_to user_path @user, notice: "User '#{@user.show_display_name}' has been #{status}"
   end
 
+  def audit_trail
+    user = current
+    @audit_trail = ApplicationHelper::AuditTrail.to_model user.versions
+    render 'shared/audit_trail'
+  end
+
   private
 
-  def current_user
-    @current_user ||= User.find params[:id]
+  def current
+    @current ||= User.find params[:id]
   end
 
   def user_params

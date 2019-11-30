@@ -14,9 +14,9 @@ nav.navbar.has-shadow
   .navbar-end
     .navbar-item.has-dropdown.is-hoverable
       .navbar-link
-        | Maikel
+        = current_user.show_display_name
       .navbar-dropdown.is-right
-        a.navbar-item
+        = link_to user_path(current_user), class: 'navbar-item' do
           div
             span.icon.is-small
               i.fa.fa-user-circle-o

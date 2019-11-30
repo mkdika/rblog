@@ -22,3 +22,6 @@
       p.control
         div
           = link_to 'Delete', category_path(@category), method: :delete, class: "button is-warning is-rounded", data: {confirm: "Confirmation to delete '#{@category.name}'?"}
+      p.control
+        div
+          = link_to 'Audit Trail', audit_trail_category_path(@category), class: "button is-info is-rounded"

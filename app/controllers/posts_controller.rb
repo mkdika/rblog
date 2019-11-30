@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   layout 'mainadmin'
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :set_paper_trail_whodunnit
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
@@ -27,6 +27,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new post_params
+    @post.user = current_user
     if @post.save
       redirect_to post_path @post, notice: "Post '#{@post.title}' has been added"
     else
@@ -41,6 +42,12 @@ class PostsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def audit_trail
+    post = current_post
+    @audit_trail = ApplicationHelper::AuditTrail.to_model post.versions
+    render 'shared/audit_trail'
   end
 
   private

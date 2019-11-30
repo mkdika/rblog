@@ -1,0 +1,28 @@
+- replace :title, "Audit Trail"
+- replace :content do
+  .column
+    table.table.is-striped.is-narrow.is-fullwidth
+      thead
+        tr
+          th Event
+          th Description
+          th Created_at
+          th Created_by
+      tbody
+        - if @audit_trail.present?
+          - @audit_trail.each do |at|
+            tr
+              td
+                = at['event']
+              td
+                = at['desc']
+              td
+                = at['created_at']
+              td
+                = at['user']
+    br
+      .field
+        p.control
+          div
+            = link_to 'Back to data', "#{request.original_url.sub('audit_trail','')}", class: 'button is-info is-rounded'
+
