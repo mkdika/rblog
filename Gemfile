@@ -35,7 +35,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'database_cleaner'
   gem 'factory_bot_rails'
-  gem 'faker', '1.9.1'
+  gem 'faker'
   gem 'pry'
   gem 'rubocop', '~> 0.76.0', require: false
   gem 'rubocop-performance'

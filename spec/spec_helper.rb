@@ -20,8 +20,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'shoulda/matchers'
 require 'rspec/rails'
 require 'rails-controller-testing'
-# require 'support/database_cleaner.rb'
-require 'webmock/rspec'
+require 'support/database_cleaner.rb'
 
 require 'simplecov'
 SimpleCov.start
@@ -46,4 +45,5 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
+  config.use_transactional_fixtures = false
 end
