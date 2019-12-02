@@ -5,14 +5,20 @@ section.hero.is-medium.is-link
         | Simple rBlog
       h2.subtitle
         | Yet another Ruby on Rails blog engine
-nav.navbar.is-dark
-  .navbar-menu
-    .navbar-start
-      = link_to 'Home', '#', class: 'navbar-item'
-      = link_to 'Archive', '#', class: 'navbar-item'
-      = link_to 'Category', '#', class: 'navbar-item'
-      = link_to 'About Me', '#', class: 'navbar-item'
-      = link_to 'Login', '/admin/login', class: 'navbar-item'
+nav class='navbar is-dark'
+  .container
+    .navbar-brand
+      a role='button' class="navbar-burger burger" data-target='navbarMenu'
+        span
+        span
+        span
+    div class='navbar-menu' id='navbarMenu'
+      .navbar-start
+        = link_to 'Home', '/', class: 'navbar-item'
+        = link_to 'Archive', '#', class: 'navbar-item'
+        = link_to 'Category', '#', class: 'navbar-item'
+        = link_to 'About Me', '#', class: 'navbar-item'
+        = link_to 'Login', '/admin/login', class: 'navbar-item'
 section.section
   .column.is-8.is-offset-2
     .card
