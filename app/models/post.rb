@@ -32,6 +32,20 @@ class Post < ApplicationRecord
     markdown.render(content).html_safe
   end
 
+  def self.all_release
+    release_post = Post.order('release_date DESC').where(release: true)
+    release_post.map do |p|
+      {
+        "title" => p.title,
+        "permalink" => p.permalink,
+        "release_date" => p.release_date,
+        "category" => { "id" => p.category.id, "name" => p.category.name },
+        "user" => { "id" => p.user.id, "display_name" => p.user.show_display_name },
+        "tags" => p.tags.pluck_h(:id, :name)
+      }
+    end
+  end
+
   class CodeRayify < Redcarpet::Render::HTML
     def block_code(code, language)
       CodeRay.scan(code, language).div

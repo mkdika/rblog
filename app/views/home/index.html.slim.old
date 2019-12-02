@@ -1,0 +1,7 @@
+section.hero.is-link.is-fullheight
+  .hero-body
+    .container
+      h1.title.is-1
+        | Hello, Hola, 你好, 今日は!
+      h3.subtitle
+        = link_to "$> login", "/admin/login"

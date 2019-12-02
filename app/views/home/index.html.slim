@@ -1,7 +1,45 @@
-section.hero.is-link.is-fullheight
+section.hero.is-medium.is-link
   .hero-body
-    .container
-      h1.title.is-1
-        | Hello, Hola, 你好, 今日は!
-      h3.subtitle
-        = link_to "$> login", "/admin/login"
+    .container.has-text-centered
+      h1.title
+        | Simple rBlog
+      h2.subtitle
+        | Yet another Ruby on Rails blog engine
+nav.navbar.is-dark
+  .navbar-menu
+    .navbar-start
+      = link_to 'Home', '#', class: 'navbar-item'
+      = link_to 'Archive', '#', class: 'navbar-item'
+      = link_to 'Category', '#', class: 'navbar-item'
+      = link_to 'About Me', '#', class: 'navbar-item'
+      = link_to 'Login', '/admin/login', class: 'navbar-item'
+section.section
+  .column.is-8.is-offset-2
+    .card
+      .card-content
+        - @all_release_post.each do |post|
+          h1.title.is-4
+            = link_to "#{post['title']}"
+          h2.subtitle.is-7.has-text-grey
+            span.icon.is-small
+              i.fa.fa-calendar
+            | &nbsp;
+            strong
+              = post['release_date'].strftime("%Y-%-m-%-d %H:%M")
+            | &nbsp;&nbsp;
+            span.icon.is-small
+              i.fa.fa-tags
+            = link_to " #{post['category']['name']}",'#'
+            | &nbsp;&nbsp;
+            span.icon.is-small
+              i.fa.fa-user
+            = link_to " #{post['user']['display_name']} ", '#'
+            
+footer.footer.is-center
+  .content.has-text-centered
+    ' rBlog is written with hand by 
+    strong Maikel Chandika 
+    ' (mkdika@gmail.com).
+    br
+    = link_to 'Source code', 'https://github.com/mkdika/rblog'
+    |  is available under MIT license.

@@ -16,3 +16,20 @@ div.notification {
   font-size: 14px;
   margin: 0px;
 }
+
+.navbar-start {
+  flex-grow: 1; 
+  justify-content: center;
+}
+
+a.navbar-item {
+  padding: 0.5rem 1.5rem;
+}
+
+h1.title.is-4 {
+  padding-top: 10px;
+}
+
+h2.subtitle.is-7.has-text-grey {
+  padding-bottom: 10px;
+}
