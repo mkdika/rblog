@@ -19,6 +19,8 @@ This is my RoR full stack web development learning project & example, including 
 - [RSpec Rails 3](https://relishapp.com/rspec/rspec-rails/v/3-9/docs), BDD and test suite.
 - [Faker](https://github.com/faker-ruby/faker), A library for generating fake data such as names, addresses, and phone numbers.
 - [Factory Bot Rails](https://github.com/thoughtbot/factory_bot_rails), a library for setting up Ruby objects as test data.
+- [Capybara](https://github.com/teamcapybara/capybara), acceptance test framework for web applications.
+- [Selenium](https://github.com/SeleniumHQ/selenium), a browser automation framework and ecosystem.
 - [Bulma CSS](https://bulma.io/), mobile first CSS framework.
 - [Postgresql 10](https://www.postgresql.org/)
 - [Peru](https://github.com/buildinspace/peru), a package manager for including other people's code in your projects.
