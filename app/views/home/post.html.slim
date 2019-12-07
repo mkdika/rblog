@@ -1,0 +1,35 @@
+- replace :title, "#{@post.title}"
+- replace :content do
+  br
+  .section
+    .container
+      .columns.is-centered.is-mobile
+        .column.is-narrow.has-text-centered.is-three-quarters
+          h1.title.is-size-6-mobile.is-size-2-desktop.has-text-grey.has-text-weight-light
+            = @post.title
+          h2.subtitle.is-size-6-desktop.has-text-weight-light
+            span.icon.is-small
+              i.fa.fa-calendar
+            | &nbsp;
+            = @post.release_date.strftime("%Y-%-m-%-d %H:%M")
+            | &nbsp;&nbsp;&nbsp;
+            span.icon.is-small
+              i.fa.fa-user
+            = link_to " #{@post.user.display_name} ", '#'
+            | &nbsp;&nbsp;&nbsp;
+            span.icon.is-small
+              i.fa.fa-tags
+            = link_to ' Category', '#' 
+            br
+            - @post.tags.each_with_index do |p,i|
+              = link_to "#{p.name}", "#"
+              - if i < (@post.tags.size - 1)
+                | &nbsp;.&nbsp;
+  br
+  .section
+    .container
+      .colums.is-centered.is-mobile
+        .column.is-narrow.is-8.is-offset-2
+          p
+            .content
+              = @post.content_to_html

@@ -1,0 +1,24 @@
+section.hero.is-medium.is-link
+  .hero-body
+    .container.has-text-centered
+      h1.title.is-size-4-mobile.is-size-2-desktop
+        | Simple rBlog
+      h2.subtitle.is-size-6-mobile
+        | Yet another Ruby on Rails blog engine
+nav class='navbar is-dark'
+  .container
+    .navbar-brand
+      a role='button' class="navbar-burger burger" data-target='navbarMenu'
+        span
+        span
+        span
+    div class='navbar-menu' id='navbarMenu'
+      .navbar-start
+        = link_to 'Home', root_path, class: 'navbar-item'
+        = link_to 'Archive', '#', class: 'navbar-item'
+        = link_to 'Category', '#', class: 'navbar-item'
+        = link_to 'About Me', '#', class: 'navbar-item'
+        - if current_user.present?
+          = link_to 'Admin Page', '/admin', class: 'navbar-item'
+        - else
+          = link_to 'Login', '/admin/login', class: 'navbar-item'

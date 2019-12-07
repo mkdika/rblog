@@ -9,6 +9,7 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :taggings
 
   validates :title, :content, presence: true
+  validates :title, length: { maximum: 100 }
 
   attribute :release, default: false
 

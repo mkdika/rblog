@@ -1,65 +1,26 @@
-section.hero.is-medium.is-link
-  .hero-body
-    .container.has-text-centered
-      h1.title.is-size-4-mobile.is-size-2-desktop
-        | Simple rBlog
-      h2.subtitle.is-size-6-mobile
-        | Yet another Ruby on Rails blog engine
-nav class='navbar is-dark'
-  .container
-    .navbar-brand
-      a role='button' class="navbar-burger burger" data-target='navbarMenu'
-        span
-        span
-        span
-    div class='navbar-menu' id='navbarMenu'
-      .navbar-start
-        = link_to 'Home', root_path, class: 'navbar-item'
-        = link_to 'Archive', '#', class: 'navbar-item'
-        = link_to 'Category', '#', class: 'navbar-item'
-        = link_to 'About Me', '#', class: 'navbar-item'
-        - if current_user.present?
-          = link_to 'Admin Page', '/admin', class: 'navbar-item'
-        - else
-          = link_to 'Login', '/admin/login', class: 'navbar-item'
-
-section.section
-  .columns.is-mobile
-    .column.is-full
-      .card
-        .card-content
-          - unless @all_release_post.any?
-            h1.title.is-size-6-mobile.is-size-4-desktop.has-text-grey-light.has-text-centered
-              br
-              | No post data ;(
-              br
-              br
-          - else
-            - @all_release_post.each do |post|
-              h1.title.is-size-6-mobile.is-size-4-desktop
-                = link_to "#{post['title']}"
-              h2.subtitle.is-size-7-mobile.is-size-6-desktop.has-text-grey
-                span.icon.is-small
-                  i.fa.fa-calendar
-                | &nbsp;
-                strong
-                  = post['release_date'].strftime("%Y-%-m-%-d %H:%M")
-                | &nbsp;&nbsp;&nbsp;
-                span.icon.is-small
-                  i.fa.fa-tags
-                = link_to " #{post['category']['name']}",'#'
-                | &nbsp;&nbsp;&nbsp;
-                span.icon.is-small
-                  i.fa.fa-user
-                = link_to " #{post['user']['display_name']} ", '#'
-  
-footer.footer.is-center
-  .content.has-text-centered.is-size-7-mobile
-    ' rBlog is written with hand
-    br
-    | by 
-    strong Maikel Chandika 
-    ' (mkdika@gmail.com)
-    br
-    = link_to 'Source code', 'https://github.com/mkdika/rblog'
-    |  is available under MIT license.
+- replace :title, "Home"
+- replace :content do
+  - unless @all_release_post.any?
+    h1.title.is-size-6-mobile.is-size-4-desktop.has-text-grey-light.has-text-centered
+      br
+      | No post data ;(
+      br
+      br
+  - else
+    - @all_release_post.each do |post|
+      h1.title.is-size-6-mobile.is-size-4-desktop
+        = link_to "#{post['title']}", post_by_permalink_path(post['permalink'])
+      h2.subtitle.is-size-7-mobile.is-size-6-desktop.has-text-grey
+        span.icon.is-small
+          i.fa.fa-calendar
+        | &nbsp;
+        strong
+          = post['release_date'].strftime("%Y-%-m-%-d %H:%M")
+        | &nbsp;&nbsp;&nbsp;
+        span.icon.is-small
+          i.fa.fa-tags
+        = link_to " #{post['category']['name']}",'#'
+        | &nbsp;&nbsp;&nbsp;
+        span.icon.is-small
+          i.fa.fa-user
+        = link_to " #{post['user']['display_name']} ", '#'

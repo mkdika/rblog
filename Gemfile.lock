@@ -354,7 +354,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pluck_to_hash
   pry
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (= 5.2.3)
   rails-controller-testing
   rake (< 11)

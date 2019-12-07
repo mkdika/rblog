@@ -1,6 +1,8 @@
 .column.is-4-tablet.is-3-desktop.is-2-widescreen
   nav.menu
     ul.menu-list
+      p.menu-label
+        | Admin Page
       li
         a href="#{admin_index_path}" class="#{'is-active' if @dashboard}"
           span.icon
@@ -31,3 +33,10 @@
           span.icon
             i.fa.fa-user-circle-o
           | &nbsp;Users
+      p.menu-label
+        | Blog Page
+      li
+        a href="#{root_path}"
+          span.icon
+            i.fa.fa-user-circle-o
+          | &nbsp;Home

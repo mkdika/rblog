@@ -22,5 +22,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/posts/:permalink', to: 'home#post', as: 'post_by_permalink'
   root to: 'home#index'
 end

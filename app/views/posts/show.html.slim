@@ -49,12 +49,12 @@
                 span.tag.is-link.is-normal
                   = tagging
                 | &nbsp;
-    cle.message.is-dark
+    article.message.is-dark
       .message-header
         | Content
       .message-body
         .content
-          == @post.content_to_html
+          = @post.content_to_html
     br
     .field.is-grouped
       p.control
