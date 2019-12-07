@@ -8,4 +8,7 @@ class HomeController < ApplicationController
   def post
     @post = Post.find_by(permalink: params[:permalink])
   end
+
+  def about
+  end
 end

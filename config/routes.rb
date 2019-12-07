@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/about', to: 'home#about', as: 'about'
+  get '/posts/archive', to: 'home#archive', as: 'post_archive'
   get '/posts/:permalink', to: 'home#post', as: 'post_by_permalink'
   root to: 'home#index'
 end

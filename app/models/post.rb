@@ -37,12 +37,12 @@ class Post < ApplicationRecord
     release_post = Post.order('release_date DESC').where(release: true)
     release_post.map do |p|
       {
-        "title" => p.title,
-        "permalink" => p.permalink,
-        "release_date" => p.release_date,
-        "category" => { "id" => p.category.id, "name" => p.category.name },
-        "user" => { "id" => p.user.id, "display_name" => p.user.show_display_name },
-        "tags" => p.tags.pluck_h(:id, :name)
+        'title' => p.title,
+        'permalink' => p.permalink,
+        'release_date' => p.release_date,
+        'category' => { "id" => p.category.id, "name" => p.category.name },
+        'user' => { "id" => p.user.id, "display_name" => p.user.show_display_name },
+        'tags' => p.tags.pluck_h(:id, :name)
       }
     end
   end

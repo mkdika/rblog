@@ -15,9 +15,7 @@ nav class='navbar is-dark'
     div class='navbar-menu' id='navbarMenu'
       .navbar-start
         = link_to 'Home', root_path, class: 'navbar-item'
-        = link_to 'Archive', '#', class: 'navbar-item'
-        = link_to 'Category', '#', class: 'navbar-item'
-        = link_to 'About Me', '#', class: 'navbar-item'
+        = link_to 'About Me', about_path, class: 'navbar-item'
         - if current_user.present?
           = link_to 'Admin Page', '/admin', class: 'navbar-item'
         - else
