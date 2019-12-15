@@ -16,6 +16,9 @@ section.hero.is-link.is-fullheight
                   = f.email_field :email, autofocus: true, autocomplete: "email", class: "input" 
               .field
                 = f.submit "Send password instructions", class: "button is-info is-fullwidth"
+              .field
+                .control
+                  = recaptcha_tags
             br
               .level
                 .level-left

@@ -11,10 +11,15 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
+  flash[:recaptcha_error]
     - if flash[:notice]
       .notification.is-primary.is-full.has-text-centered
         button.delete
         = flash[:notice]
+    - if flash[:recaptcha_error]
+      .notification.is-warning.is-full.has-text-centered
+        button.delete
+        = flash[:recaptcha_error]
     - if alert
       .notification.is-warning.is-full.has-text-centered
         button.delete

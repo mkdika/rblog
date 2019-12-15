@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :user, :path => '/admin', :path_names => { :sign_in => 'login', :sign_out => 'logout' }
+  devise_for :user, :path => '/admin', :path_names => { :sign_in => 'login', :sign_out => 'logout' }, controllers: {sessions: "sessions", passwords: "passwords"}
 
   scope :admin do
     get '/', to: 'admin#index', as: 'admin_index'

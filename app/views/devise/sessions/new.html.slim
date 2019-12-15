@@ -23,6 +23,9 @@ section.hero.is-link.is-fullheight
                   = f.check_box :remember_me
                   | &nbsp;&nbsp;Remember me
               .field
+                .control
+                  = recaptcha_tags
+              .field
                 = f.submit "Login", class: "button is-info"
             br
             .level

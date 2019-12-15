@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.5'
 
 gem 'rails', '5.2.3'
-gem 'puma', '~> 3.12.1'
+gem 'puma', '~> 3.12.2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -85,4 +85,5 @@ gem 'paper_trail'
 gem 'pluck_to_hash'
 gem 'nestive', '~> 0.5'
 gem 'redcarpet'
+gem "recaptcha", :require => "recaptcha/rails" 
 gem 'slim-rails'
