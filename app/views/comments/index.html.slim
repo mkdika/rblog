@@ -1,0 +1,29 @@
+- replace :title, "Comments"
+- replace :admin_content do
+  .column
+      div
+        = link_to 'New', new_comment_path(@comment), class: "button is-rounded is-primary"
+      br
+      table.table.is-striped.is-narrow
+        thead
+          tr
+            th Date
+            th Name
+            th Email
+            th Post Title
+        tbody
+          - @comments.each do |comment|
+            tr
+              td
+                = comment.created_at.strftime("%Y-%-m-%-d %H:%M")
+              td
+                = comment.name
+              td
+                = comment.email
+              td
+                = comment.post.title
+              td
+                = link_to 'detail', comment_path(comment), class: "button is-info"
+      div
+        | Size:  
+        b = @comments.size

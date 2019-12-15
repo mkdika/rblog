@@ -24,7 +24,7 @@
             i.fa.fa-file
           | &nbsp;Posts
       li
-        a href="#" class="#{'is-active' if @comments || @comment}"
+        a href="#{comments_path}" class="#{'is-active' if @comments || @comment}"
           span.icon
             i.fa.fa-comment
           | &nbsp;Comments

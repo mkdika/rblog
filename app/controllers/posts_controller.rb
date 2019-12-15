@@ -51,6 +51,11 @@ class PostsController < ApplicationController
     render 'shared/audit_trail'
   end
 
+  def comments
+    @post = current_post
+    render 'comments'
+  end
+
   private
 
   def current_post

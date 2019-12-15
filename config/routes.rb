@@ -14,6 +14,11 @@ Rails.application.routes.draw do
 
     resources :posts do
       get 'audit_trail', on: :member
+      get 'comments', on: :member
+    end
+
+    resources :comments do
+      get 'audit_trail', on: :member
     end
 
     resources :users do

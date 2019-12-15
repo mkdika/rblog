@@ -14,3 +14,6 @@ tags1 = Tagging.create post: post1, tag: tags.first
 tags2 = Tagging.create post: post1, tag: tags.last
 
 tags3 = Tagging.create post: post2, tag: tags.last
+
+comment1 = Comment.new name: 'Maikel', email: 'mkdika@gmail.com', content: 'Good posting!', post: post1
+comment1.save

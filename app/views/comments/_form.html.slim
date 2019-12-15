@@ -1,0 +1,30 @@
+= form_for @comment do |f|
+  .field
+    = f.label "Name", class: "label"
+    .control
+      = f.text_field :name, class: "input #{ @comment.errors[:name].any? ? 'is-danger' : '' }"
+      - if @comment.errors[:name]
+        p.help.is-danger
+          = @comment.errors[:name].join(', ')
+  .field
+    = f.label "Email", class: "label"
+    .control
+      = f.text_field :email, class: "input #{ @comment.errors[:email].any? ? 'is-danger' : '' }"
+      - if @comment.errors[:email]
+        p.help.is-danger
+          = @comment.errors[:email].join(', ')
+  .field
+    = f.label "Post", class: "label"
+    .control
+      .select
+        = f.collection_select :post_id, Post.order(:permalink).all, :id, :permalink, include_blank: false
+  .field
+    = f.label "Content", class: "label"
+    .control
+      = f.text_area :content, rows: 8, class: "textarea #{ @comment.errors[:content].any? ? 'is-danger' : ''}"
+      - if @comment.errors[:content]
+        p.help.is-danger
+          = @comment.errors[:content].join(', ')
+
+  div
+    = f.submit button_text, class: "button is-primary is-rounded"

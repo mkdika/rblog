@@ -1,0 +1,48 @@
+- replace :title, "Comment"
+- replace :admin_content do
+  .column
+    table.table.is-narrow.is-hoverable
+        tbody
+          tr
+            td.has-text-weight-semibold Id
+            td
+              | :
+            td = @comment.id
+          tr
+            td.has-text-weight-semibold Name
+            td
+              | :
+            td = @comment.name
+          tr
+            td.has-text-weight-semibold Email
+            td
+              | :
+            td = @comment.email
+          tr
+            td.has-text-weight-semibold Post
+            td
+              | :
+            td
+              = link_to "#{@comment.post.title}", post_path(@comment.post)
+          tr
+            td.has-text-weight-semibold Created at
+            td
+              | :
+            td = @comment.created_at
+    article.message.is-dark
+      .message-header
+        | Content
+      .message-body
+        .content
+          = @comment.content_to_html
+    br
+    .field.is-grouped
+      p.control
+        div
+          = link_to 'Edit', edit_comment_path(@comment), class: "button is-primary is-rounded"
+      p.control
+        div
+          = link_to 'Delete', comment_path(@comment), method: :delete, class: "button is-warning is-rounded", data: {confirm: "Confirmation to delete id:'#{@comment.id}'?"}
+      p.control
+        div
+          = link_to 'Audit Trail', audit_trail_comment_path(@comment), class: "button is-info is-rounded"
