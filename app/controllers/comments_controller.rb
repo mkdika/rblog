@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    @comments = Comment.order(:id).all
+    @comments = Comment.order('created_at DESC').all
   end
 
   def show
@@ -22,22 +22,23 @@ class CommentsController < ApplicationController
   def destroy
     comment = current_comment
     comment.destroy
-    redirect_to comments_path, notice: "Comment id:#{comment.id} for Post:'#{comment.post.title}' deleted"
+    redirect_to comments_path, notice: "Comment id:#{comment.id} for Post:'#{comment.post.title}' has deleted"
   end
   
   def create
     @comment = Comment.new comment_params
     if @comment.save
-      redirect_to comment_path(@comment), notice: "Comment id:#{@comment.id} for Post:'#{@comment.post.title}' deleted"
+      redirect_to comment_path(@comment), notice: "Comment id:#{@comment.id} for Post:'#{@comment.post.title}' has created"
     else
       render 'new'
     end
   end
 
+
   def update
     @comment = current_comment
     if @comment.update comment_params
-      redirect_to comment_path(@comment), notice: "Comment id:#{@comment.id} for Post:'#{@comment.post.title}' has been updated"
+      redirect_to comment_path(@comment), notice: "Comment id:#{@comment.id} for Post:'#{@comment.post.title}' has updated"
     else
       render 'edit'
     end

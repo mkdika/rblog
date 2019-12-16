@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
     resources :comments do
       get 'audit_trail', on: :member
+      post 'create_from_post', to: 'create_from_post'
     end
 
     resources :users do
@@ -30,5 +31,6 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about', as: 'about'
   get '/posts/archive', to: 'home#archive', as: 'post_archive'
   get '/posts/:permalink', to: 'home#post', as: 'post_by_permalink'
+  post '/posts/comments', to: 'home#create_comment', as: 'comment_by_post'
   root to: 'home#index'
 end
