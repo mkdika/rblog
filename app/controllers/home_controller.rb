@@ -6,18 +6,21 @@ class HomeController < ApplicationController
   end
 
   def post
-    @post = Post.find_by(permalink: params[:permalink])
+    @post ||= Post.find_by(permalink: params[:permalink])
     if @post.present?
       @comment = Comment.new
     end
   end
 
-  def create_comment
+  def post_comment
     @comment = Comment.new comment_params
-    if @comment.save
+    @post = @comment.post
+    if verify_recaptcha(model: @comment) && @comment.save
       redirect_to post_by_permalink_path(@comment.post.permalink), notice: "a comment for Post:'#{@comment.post.title}' has created"
     else
-      @post = @comment.post
+      unless verify_recaptcha
+        flash[:recaptcha_error] = 'reCAPTCHA verification failed'
+      end
       render 'post'
     end
   end

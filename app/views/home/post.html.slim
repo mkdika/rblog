@@ -35,11 +35,11 @@
               = @post.content_to_html
 
   br
-  .section
+  div class='section' id='comment_form'
     .container
       .columns.is-mobile
         .column.is-narrow.is-4.is-offset-4.is-size-6-mobile.is-size-5-desktop
-          = form_for @comment, url: comment_by_post_path do |f|
+          = form_for @comment, url: post_comment_path(anchor: 'comment_form') do |f|
             .field
               = f.hidden_field :post_id, value: @post.id
             .field
@@ -59,16 +59,19 @@
             .field
               = f.label "Content", class: "label"
               .control
-                = f.text_area :content, rows: 8, class: "textarea #{ @comment.errors[:content].any? ? 'is-danger' : ''}"
+                = f.text_area :content, rows: 4, class: "textarea #{ @comment.errors[:content].any? ? 'is-danger' : ''}"
                 - if @comment.errors[:content]
                   p.help.is-danger
                     = @comment.errors[:content].join(', ')
-
+            .field
+              .control
+                = recaptcha_tags
+                - if flash[:recaptcha_error]
+                  p.help.is-danger
+                    = flash[:recaptcha_error]
             div
               = f.submit "Submit comment", class: "button is-primary is-rounded"
-  
-  br
-  .section
+  div class='section' id='comment_list'
     .container
       .columns.is-mobile
         .column.is-narrow.is-6.is-offset-3.is-size-6-mobile.is-size-5-desktop

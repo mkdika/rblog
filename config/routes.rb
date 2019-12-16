@@ -31,6 +31,6 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about', as: 'about'
   get '/posts/archive', to: 'home#archive', as: 'post_archive'
   get '/posts/:permalink', to: 'home#post', as: 'post_by_permalink'
-  post '/posts/comments', to: 'home#create_comment', as: 'comment_by_post'
+  post '/posts/:permalink', to: 'home#post_comment', as: 'post_comment'
   root to: 'home#index'
 end
