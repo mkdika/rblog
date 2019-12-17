@@ -2,27 +2,26 @@ nav.navbar.has-shadow
   .navbar-brand
     a.navbar-item href="#{admin_index_path}"
       = image_tag "ruby.png"
-    .navbar-burger.burger
+    .navbar-item.navbar-item-centered
+      div
+        b Simple rBlog
+    a role='button' class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target='navbarMenu'
       span
       span
       span
-  .navbar-menu
-    .navbar-start
-      .navbar-item
-        div
-          b Simple rBlog
-  .navbar-end
-    .navbar-item.has-dropdown.is-hoverable
-      .navbar-link
-        = current_user.show_display_name
-      .navbar-dropdown.is-right
-        = link_to user_path(current_user), class: 'navbar-item' do
-          div
-            span.icon.is-small
-              i.fa.fa-user-circle-o
-            | &nbsp;&nbsp;My Profile
-        = link_to destroy_user_session_path, :method => :delete, class: "navbar-item" do
-          div
-            span.icon.is-small
-              i.fa.fa-sign-out
-            | &nbsp;&nbsp;Sign out
+  div class='navbar-menu' id='navBarMenu'
+    .navbar-end
+      .navbar-item.has-dropdown.is-hoverable
+        .navbar-link
+          = current_user.show_display_name
+        .navbar-dropdown.is-right
+          = link_to user_path(current_user), class: 'navbar-item' do
+            div
+              span.icon.is-small
+                i.fa.fa-user-circle-o
+              | &nbsp;&nbsp;My Profile
+          = link_to destroy_user_session_path, :method => :delete, class: "navbar-item" do
+            div
+              span.icon.is-small
+                i.fa.fa-sign-out
+              | &nbsp;&nbsp;Sign out
