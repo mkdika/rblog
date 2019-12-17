@@ -37,7 +37,7 @@
   br
   div class='section' id='comment_form'
     .container
-      .columns.is-mobile
+      .columns
         .column.is-narrow.is-4.is-offset-4.is-size-6-mobile.is-size-5-desktop
           = form_for @comment, url: post_comment_path(anchor: 'comment_form') do |f|
             .field
@@ -73,14 +73,14 @@
               = f.submit "Submit comment", class: "button is-primary is-rounded"
   div class='section' id='comment_list'
     .container
-      .columns.is-mobile
+      .columns
         .column.is-narrow.is-6.is-offset-3.is-size-6-mobile.is-size-5-desktop
           - if @post.comments.size > 0
             - @post.comments.sort_by { |c| c.created_at }.reverse!
             - @post.comments.each do |comment|
               .card
                 .card-header
-                  p.card-header-title.is-size-6.has-text-weight-light
+                  p.card-header-title.is-size-6-mobile.is-size-5-desktop.has-text-weight-light
                     = comment.name
                     - if comment.email?
                       | &nbsp;(
@@ -88,7 +88,7 @@
                       | )
 
                 .card-content
-                  .content
+                  .content.is-size-6-mobile.is-size-5-desktop
                     = comment.content_to_html
                 .card-footer
                   .card-footer-item

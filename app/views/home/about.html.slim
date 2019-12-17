@@ -1,4 +1,48 @@
 - replace :title, 'About me'
 - replace :content do
-  h1.title.is-size-6-mobile.is-size-4-desktop.has-text-grey
+  h1.title.is-size-4-mobile.is-size-3-desktop.has-text-centered.has-text-grey-light
     | About Me
+  br
+  figure.image.is-128x128.has-object-centered
+    img class='is-rounded' src='https://i.ibb.co/NN9NyNM/pp.jpg'
+  br
+  p.is-size-6-mobile.is-size-6-desktop.has-text-centered
+    | Hi, My name is 
+    strong Maikel Chandika
+    br
+    | I'm a professional software engineer and OSS enthusiast base in 
+    = link_to "Jakarta, Indonesia", "https://goo.gl/maps/1PJx4gNK74FECB1M7", target: "gmaps"
+    | , 
+    br
+    | and been writing codes for several years, and as a hobbyist coder too.
+    br
+    br
+    | I created this simple blog engine as part of my learning process for Ruby programming language. Moreover, Ruby on Rails.
+    br
+    | It's a cheerful experience to bootstrap and developing web application in faster way.
+    br
+    br
+    | Hope you found this blog useful, and thanks for visiting my website :)
+  br
+  br
+  section.section
+    .container
+      .columns.is-centered.is-vcentered.is-mobile
+        .column.is-narrow.has-text-centered
+          .buttons
+            a.button.is-danger.is-medium href="mailto:mkdika@gmail.com" target="email"
+              span.icon.is-large.is-left
+                i.fa.fa-google
+            a.button.is-primary.is-medium href="https://twitter.com/maikelchandika" target="twitter"
+              span.icon.is-large.is-left
+                i.fa.fa-twitter
+            a.button.is-link.is-medium href="https://www.facebook.com/maikel.chandika" target="facebook"
+              span.icon.is-large.is-left
+                i.fa.fa-facebook
+            a.button.is-info.is-medium href="https://www.linkedin.com/in/maikelchandika?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BUnFVkh0bT82NoTwKXPhb5A%3D%3D" target="linkedin"
+              span.icon.is-large.is-left
+                i.fa.fa-linkedin
+            a.button.is-medium href="https://github.com/mkdika" target="github"
+              span.icon.is-large.is-left
+                i.fa.fa-github
+      
