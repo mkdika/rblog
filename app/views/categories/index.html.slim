@@ -1,10 +1,10 @@
 - replace :title, "Categories"
 - replace :admin_content do
-  .column
+  .column.is-size-7-mobile
       div
         = link_to 'New', new_category_path(@category), class: "button is-primary"
       br
-      table.table.is-narrow
+      table.table.is-striped.is-narrow
         thead
           tr
             th Name
@@ -15,6 +15,5 @@
                 = category.name
               td
                 = link_to 'detail', category_path(category), class: "button is-info"
-      div
-        | Size:  
-        b = @categories.size
+      | Size:  
+      b = @categories.size

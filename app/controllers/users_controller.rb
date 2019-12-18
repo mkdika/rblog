@@ -22,13 +22,13 @@ class UsersController < ApplicationController
   def destroy
     user = current
     user.destroy
-    redirect_to users_path, notice: "User '#{user.show_display_name}' deleted"
+    redirect_to users_path, notice: "User '#{user.show_display_name}' has deleted"
   end
 
   def create
     @user = User.new user_params
     if @user.save
-      redirect_to user_path(@user), notice: "User '#{@user.show_display_name}' has been added"
+      redirect_to user_path(@user), notice: "User '#{@user.show_display_name}' has added"
     else
       render 'new'
     end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def update
     @user = current
     if @user.update user_params
-      redirect_to user_path(@user), notice: "User '#{@user.show_display_name}' has been updated"
+      redirect_to user_path(@user), notice: "User '#{@user.show_display_name}' has updated"
     else
       render 'edit'
     end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
       @user.update locked_at: DateTime.now
       status = 'locked'
     end
-    redirect_to user_path @user, notice: "User '#{@user.show_display_name}' has been #{status}"
+    redirect_to user_path @user, notice: "User '#{@user.show_display_name}' has #{status}"
   end
 
   def audit_trail

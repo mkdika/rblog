@@ -14,15 +14,15 @@ html
   body
   flash[:recaptcha_error]
     - if flash[:notice]
-      .notification.is-primary.is-full.has-text-centered
+      .notification.is-primary.is-full.has-text-centered.is-size-7-mobile.is-size-6-desktop
         button.delete
         = flash[:notice]
     - if flash[:recaptcha_error]
-      .notification.is-warning.is-full.has-text-centered
+      .notification.is-warning.is-full.has-text-centered.is-size-7-mobile.is-size-6-desktop
         button.delete
         = flash[:recaptcha_error]
     - if alert
-      .notification.is-warning.is-full.has-text-centered
+      .notification.is-warning.is-full.has-text-centered.is-size-7-mobile.is-size-6-desktop
         button.delete
         = alert
     = yield

@@ -12,8 +12,8 @@ nav.navbar.has-shadow
   div class='navbar-menu' id='navBarMenu'
     .navbar-end
       .navbar-item.has-dropdown.is-hoverable
-        .navbar-link.is-size-6
+        .navbar-link.is-size-7-mobile.is-size-6-desktop
           = current_user.show_display_name
-        .navbar-dropdown.is-size-6.is-right
+        .navbar-dropdown.is-size-7-mobile.is-size-6-desktop
           = link_to "My Profile", user_path(current_user), class: 'navbar-item'
           = link_to "Sign Out", destroy_user_session_path, :method => :delete, class: "navbar-item"

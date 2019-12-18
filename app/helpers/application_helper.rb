@@ -10,6 +10,7 @@ module ApplicationHelper
             "desc" => x.object,
             "created_at" => x.created_at,
             "user" => user.present? ? user.show_display_name : "",
+            "type" => x.item_type
           }
         end
       end

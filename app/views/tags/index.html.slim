@@ -1,8 +1,8 @@
 - replace :title, "Tags"
 - replace :admin_content do
-  .column
+  .column.is-size-7-mobile
       div
-        = link_to 'New', new_tag_path(@tag), class: "button is-rounded is-primary"
+        = link_to 'New', new_tag_path(@tag), class: "button is-primary"
       br
       table.table.is-striped.is-narrow
         thead
@@ -15,6 +15,5 @@
                 = tag.name
               td
                 = link_to 'detail', tag_path(tag), class: "button is-info"
-      div
-        | Size:  
-        b = @tags.size
+      | Size:  
+      b = @tags.size

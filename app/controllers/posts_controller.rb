@@ -23,14 +23,14 @@ class PostsController < ApplicationController
   def destroy
     post = current_post
     post.destroy
-    redirect_to posts_path, notice: "Post '#{post.title}' deleted"
+    redirect_to posts_path, notice: "Post '#{post.title}' has deleted"
   end
 
   def create
     @post = Post.new post_params
     @post.user = current_user
     if @post.save
-      redirect_to post_path(@post), notice: "Post '#{@post.title}' has been added"
+      redirect_to post_path(@post), notice: "Post '#{@post.title}' has added"
     else
       render 'new'
     end
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   def update
     @post = current_post
     if @post.update post_params
-      redirect_to post_path(@post), notice: "Post '#{@post.title}' has been updated"
+      redirect_to post_path(@post), notice: "Post '#{@post.title}' has updated"
     else
       render 'edit'
     end

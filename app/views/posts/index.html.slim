@@ -1,8 +1,8 @@
 - replace :title, "Posts"
 - replace :admin_content do
-  .column
+  .column.is-size-7-mobile
       div
-        = link_to 'New', new_post_path(@post), class: "button is-rounded is-primary"
+        = link_to 'New', new_post_path(@post), class: "button is-primary"
       br
       table.table.is-striped.is-narrow
         thead
@@ -18,10 +18,9 @@
               td
                 = post.title
               td
-                span class="tag is-medium #{post.release ? 'is-success' : 'is-light'}"
+                span class="tag #{post.release ? 'is-success' : 'is-light'}"
                  = post.release
               td
                 = link_to 'detail', post_path(post), class: "button is-info"
-      div
-        | Size:  
-        b = @posts.size
+      | Size:  
+      b = @posts.size

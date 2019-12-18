@@ -1,14 +1,14 @@
 - replace :title, "Post comments"
 - replace :admin_content do
   .column.is-full
-    h1.title.is-size-5-mobile.is-size-4-desktop
+    h1.title.is-size-6-mobile.is-size-4-desktop
       = @post.title
     - if @post.comments.size > 0
       - @post.comments.sort_by { |c| c.created_at }.reverse!
       - @post.comments.each do |comment|
         .card
           .card-header
-            p.card-header-title.is-size-6.has-text-weight-light
+            p.card-header-title.is-size-7-mobile.has-text-weight-light
               = comment.name
               - if comment.email?
                 | &nbsp;(
@@ -16,7 +16,7 @@
                 | )
 
           .card-content
-            .content
+            .content.is-size-7-mobile
               = comment.content_to_html
           .card-footer
             .card-footer-item
@@ -34,4 +34,4 @@
     .field
       p.control
         div
-          = link_to 'Back to post', post_path(@post), class: 'button is-info is-rounded'
+          = link_to 'Back to post', post_path(@post), class: 'button is-info'

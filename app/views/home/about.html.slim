@@ -6,11 +6,13 @@
   figure.image.is-128x128.has-object-centered
     img class='is-rounded' src='https://i.ibb.co/NN9NyNM/pp.jpg'
   br
-  p.is-size-6-mobile.is-size-6-desktop.has-text-centered
+  p.is-size-7-mobile.is-size-6-desktop.has-text-centered
     | Hi, My name is 
     strong Maikel Chandika
     br
-    | I'm a professional software engineer and OSS enthusiast base in 
+    | I'm a professional software engineer and 
+    = link_to "OSS", "https://en.wikipedia.org/wiki/Open-source_software", target: "wikipedia"
+    | &nbsp;enthusiast base in 
     = link_to "Jakarta, Indonesia", "https://goo.gl/maps/1PJx4gNK74FECB1M7", target: "gmaps"
     | , 
     br
@@ -25,24 +27,29 @@
     | Hope you found this blog useful, and thanks for visiting my website :)
   br
   br
+  = link_to "https://poignant.guide/", target: 'poignant' do
+    div
+      figure.image.has-object-centered style='max-width: 240px;'
+        img src='https://i.ibb.co/MN3PjLG/whys-poignant-min.png' 
+  br
   section.section
     .container
       .columns.is-centered.is-vcentered.is-mobile
         .column.is-narrow.has-text-centered
           .buttons
-            a.button.is-danger.is-medium href="mailto:mkdika@gmail.com" target="email"
+            a.button.is-danger href="mailto:mkdika@gmail.com" target="email"
               span.icon.is-large.is-left
                 i.fa.fa-google
-            a.button.is-primary.is-medium href="https://twitter.com/maikelchandika" target="twitter"
+            a.button.is-primary href="https://twitter.com/maikelchandika" target="twitter"
               span.icon.is-large.is-left
                 i.fa.fa-twitter
-            a.button.is-link.is-medium href="https://www.facebook.com/maikel.chandika" target="facebook"
+            a.button.is-link href="https://www.facebook.com/maikel.chandika" target="facebook"
               span.icon.is-large.is-left
                 i.fa.fa-facebook
-            a.button.is-info.is-medium href="https://www.linkedin.com/in/maikelchandika?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BUnFVkh0bT82NoTwKXPhb5A%3D%3D" target="linkedin"
+            a.button.is-info href="https://www.linkedin.com/in/maikelchandika?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BUnFVkh0bT82NoTwKXPhb5A%3D%3D" target="linkedin"
               span.icon.is-large.is-left
                 i.fa.fa-linkedin
-            a.button.is-medium href="https://github.com/mkdika" target="github"
+            a.button href="https://github.com/mkdika" target="github"
               span.icon.is-large.is-left
                 i.fa.fa-github
       

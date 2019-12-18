@@ -1,28 +1,33 @@
-- replace :title, "Audit Trail"
+- replace :title, "Audit Trail#{ @audit_trail.present? ? " (#{@audit_trail.first['type']})" : ''}"
 - replace :admin_content do
-  .column
-    table.table.is-striped.is-narrow.is-fullwidth
-      thead
-        tr
-          th Event
-          th Description
-          th Created_at
-          th Created_by
-      tbody
-        - if @audit_trail.present?
-          - @audit_trail.each do |at|
-            tr
-              td
-                = at['event']
-              td
-                = at['desc']
-              td
-                = at['created_at']
-              td
-                = at['user']
+  .column.is-size-7-mobile.is-size-6-desktop
+    - if @audit_trail.present?
+      table.table.is-striped.is-narrow.is-fullwidth
+        thead
+          tr
+            th Event
+            th Description
+            th Created_at
+            th Created_by
+        tbody
+            - @audit_trail.each do |at|
+              tr
+                td
+                  = at['event']
+                td
+                  = at['desc']
+                td
+                  = at['created_at']
+                td
+                  = at['user']
+    - else
+        h1.title.is-size-6-mobile.is-size-4-desktop.has-text-grey-light.has-text-centered
+          br
+          | No data available
+
     br
     .field
       p.control
         div
-          = link_to 'Back to data', "#{request.original_url.sub('audit_trail','')}", class: 'button is-info is-rounded'
+          = link_to 'Back to data', "#{request.original_url.sub('audit_trail','')}", class: 'button is-info'
 

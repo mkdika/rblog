@@ -1,6 +1,6 @@
 .column.is-3-tablet.is-2-widescreen
   nav.menu
-    ul.menu-list.is-size-6
+    ul.menu-list.is-size-7-mobile.is-size-6-desktop
       p.menu-label.has-text-weight-bold
         | Admin Page
       li
@@ -9,27 +9,27 @@
             i.fa.fa-tachometer
           | &nbsp;Dashboard
       li
-        a href="#{categories_path}" class="#{'is-active' if @categories || @category}"
+        a href="#{categories_path}" class="#{'is-active' if @categories || @category || (@audit_trail.present? && @audit_trail.first['type'] == 'Category')}"
           span.icon
             i.fa.fa-list
           | &nbsp;Categories
       li
-        a href="#{tags_path}" class="#{'is-active' if @tags || @tag}"
+        a href="#{tags_path}" class="#{'is-active' if @tags || @tag || (@audit_trail.present? && @audit_trail.first['type'] == 'Tag')}"
           span.icon
             i.fa.fa-tags
           | &nbsp;Tags
       li
-        a href="#{posts_path}" class="#{'is-active' if @posts || @post}"
+        a href="#{posts_path}" class="#{'is-active' if @posts || @post || (@audit_trail.present? && @audit_trail.first['type'] == 'Post')}"
           span.icon
             i.fa.fa-file
           | &nbsp;Posts
       li
-        a href="#{comments_path}" class="#{'is-active' if @comments || @comment}"
+        a href="#{comments_path}" class="#{'is-active' if @comments || @comment || (@audit_trail.present? && @audit_trail.first['type'] == 'Comment')}"
           span.icon
             i.fa.fa-comment
           | &nbsp;Comments
       li
-        a href="#{users_path}" class="#{'is-active' if @users || @user}"
+        a href="#{users_path}" class="#{'is-active' if @users || @user || (@audit_trail.present? && @audit_trail.first['type'] == 'User')}"
           span.icon
             i.fa.fa-user-circle-o
           | &nbsp;Users

@@ -1,6 +1,6 @@
 - replace :title, "Comment"
 - replace :admin_content do
-  .column
+  .column.is-size-7-mobile
     table.table.is-narrow.is-hoverable
         tbody
           tr
@@ -29,20 +29,17 @@
             td
               | :
             td = @comment.created_at
-    article.message.is-dark
+    article.message.is-dark.is-size-7-mobile
       .message-header
         | Content
       .message-body
         .content
           = @comment.content_to_html
     br
-    .field.is-grouped
-      p.control
-        div
-          = link_to 'Edit', edit_comment_path(@comment), class: "button is-primary is-rounded"
-      p.control
-        div
-          = link_to 'Delete', comment_path(@comment), method: :delete, class: "button is-warning is-rounded", data: {confirm: "Confirmation to delete id:'#{@comment.id}'?"}
-      p.control
-        div
-          = link_to 'Audit Trail', audit_trail_comment_path(@comment), class: "button is-info is-rounded"
+      .columns
+        .column.is-2-desktop.column-button
+          = link_to 'Edit', edit_comment_path(@comment), class: "button is-primary is-fullwidth"
+        .column.is-2-desktop.column-button
+          = link_to 'Delete', comment_path(@comment), method: :delete, class: "button is-warning is-fullwidth", data: {confirm: "Confirmation to delete id:'#{@comment.id}'?"}
+        .column.is-2-desktop.column-button
+          = link_to 'Audit Trail', audit_trail_comment_path(@comment), class: "button is-info is-fullwidth"

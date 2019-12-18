@@ -1,6 +1,6 @@
 - replace :title, "Post"
 - replace :admin_content do
-  .column
+  .column.is-size-7-mobile
     table.table.is-narrow.is-hoverable
         tbody
           tr
@@ -58,23 +58,19 @@
                 = link_to "#{(@post.comments.size || 0)}", comments_post_path(@post)
               - else
                 | 0
-    article.message.is-dark
+    article.message.is-dark.is-size-7-mobile
       .message-header
         | Content
       .message-body
         .content
           = @post.content_to_html
     br
-    .field.is-grouped
-      p.control
-        div
-          = link_to 'Edit', edit_post_path(@post), class: "button is-primary is-rounded"
-      p.control
-        div
-          = link_to 'Delete', post_path(@post), method: :delete, class: "button is-warning is-rounded", data: {confirm: "Confirmation to delete '#{@post.title}'?"}
-      p.control
-        div
-          = link_to 'Comments', comments_post_path(@post), class: "button is-link is-rounded"
-      p.control
-        div
-          = link_to 'Audit Trail', audit_trail_post_path(@post), class: "button is-info is-rounded"
+      .columns
+        .column.is-2-desktop.column-button
+          = link_to 'Edit', edit_post_path(@post), class: "button is-primary is-fullwidth"
+        .column.is-2-desktop.column-button
+          = link_to 'Delete', post_path(@post), method: :delete, class: "button is-warning is-fullwidth", data: {confirm: "Confirmation to delete '#{@post.title}'?"}
+        .column.is-2-desktop.column-button
+          = link_to 'Comments', comments_post_path(@post), class: "button is-link is-fullwidth"
+        .column.is-2-desktop.column-button
+          = link_to 'Audit Trail', audit_trail_post_path(@post), class: "button is-info is-fullwidth"
