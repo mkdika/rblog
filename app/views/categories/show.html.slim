@@ -15,13 +15,10 @@
             td = @category.name
         
     br
-    .field.is-grouped
-      p.control
-        div
-          = link_to 'Edit', edit_category_path(@category), class: "button is-primary is-rounded"
-      p.control
-        div
-          = link_to 'Delete', category_path(@category), method: :delete, class: "button is-warning is-rounded", data: {confirm: "Confirmation to delete '#{@category.name}'?"}
-      p.control
-        div
-          = link_to 'Audit Trail', audit_trail_category_path(@category), class: "button is-info is-rounded"
+    .columns
+      .column.is-2-desktop.column-button
+        = link_to 'Edit', edit_category_path(@category), class: "button is-primary is-fullwidth"
+      .column.is-2-desktop.column-button
+        = link_to 'Delete', category_path(@category), method: :delete, class: "button is-warning is-fullwidth", data: {confirm: "Confirmation to delete '#{@category.name}'?"}
+      .column.is-2-desktop.column-button
+        = link_to 'Audit Trail', audit_trail_category_path(@category), class: "button is-info is-fullwidth"

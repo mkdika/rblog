@@ -3,7 +3,7 @@ nav.navbar.has-shadow
     a.navbar-item href="#{admin_index_path}"
       = image_tag "ruby.png"
     .navbar-item.navbar-item-centered
-      div
+      div.is-size-6-mobile.is-size-5-desktop
         b Simple rBlog
     a role='button' class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target='navbarMenu'
       span
@@ -12,16 +12,8 @@ nav.navbar.has-shadow
   div class='navbar-menu' id='navBarMenu'
     .navbar-end
       .navbar-item.has-dropdown.is-hoverable
-        .navbar-link
+        .navbar-link.is-size-6
           = current_user.show_display_name
-        .navbar-dropdown.is-right
-          = link_to user_path(current_user), class: 'navbar-item' do
-            div
-              span.icon.is-small
-                i.fa.fa-user-circle-o
-              | &nbsp;&nbsp;My Profile
-          = link_to destroy_user_session_path, :method => :delete, class: "navbar-item" do
-            div
-              span.icon.is-small
-                i.fa.fa-sign-out
-              | &nbsp;&nbsp;Sign out
+        .navbar-dropdown.is-size-6.is-right
+          = link_to "My Profile", user_path(current_user), class: 'navbar-item'
+          = link_to "Sign Out", destroy_user_session_path, :method => :delete, class: "navbar-item"

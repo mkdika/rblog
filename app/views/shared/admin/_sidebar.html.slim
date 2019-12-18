@@ -1,7 +1,7 @@
-.column.is-4-tablet.is-3-desktop.is-2-widescreen
+.column.is-3-tablet.is-2-widescreen
   nav.menu
-    ul.menu-list
-      p.menu-label
+    ul.menu-list.is-size-6
+      p.menu-label.has-text-weight-bold
         | Admin Page
       li
         a href="#{admin_index_path}" class="#{'is-active' if @dashboard}"
@@ -33,7 +33,7 @@
           span.icon
             i.fa.fa-user-circle-o
           | &nbsp;Users
-      p.menu-label
+      p.menu-label.has-text-weight-bold
         | Blog Page
       li
         a href="#{root_path}"

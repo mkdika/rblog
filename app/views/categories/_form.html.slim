@@ -6,5 +6,6 @@
       - if @category.errors[:name]
         p.help.is-danger
           = @category.errors[:name].join(', ')
-  div
-    = f.submit button_text, class: "button is-primary is-rounded"
+  .field
+    .control
+      = f.submit button_text, class: "button is-primary"
