@@ -1,6 +1,6 @@
 - replace :title, "Posts"
 - replace :admin_content do
-  .column.is-size-7-mobile
+  .column.is-size-6-mobile
       div
         = link_to 'New', new_post_path(@post), class: "button is-primary"
       br
@@ -21,6 +21,6 @@
                 span class="tag #{post.release ? 'is-success' : 'is-light'}"
                  = post.release
               td
-                = link_to 'detail', post_path(post), class: "button is-info"
+                = link_to 'view', post_path(post), class: "button is-info is-small"
       | Size:  
       b = @posts.size

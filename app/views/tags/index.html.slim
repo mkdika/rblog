@@ -1,6 +1,6 @@
 - replace :title, "Tags"
 - replace :admin_content do
-  .column.is-size-7-mobile
+  .column.is-size-6-mobile
       div
         = link_to 'New', new_tag_path(@tag), class: "button is-primary"
       br
@@ -14,6 +14,6 @@
               td
                 = tag.name
               td
-                = link_to 'detail', tag_path(tag), class: "button is-info"
+                = link_to 'view', tag_path(tag), class: "button is-info is-small"
       | Size:  
       b = @tags.size

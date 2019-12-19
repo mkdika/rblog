@@ -1,6 +1,6 @@
 - replace :title, "User"
 - replace :admin_content do
-  .column.is-size-7-mobile
+  .column.is-size-6-mobile
     table.table.is-narrow.is-hoverable
         tbody
           tr
@@ -23,7 +23,7 @@
             td
               | :
             td
-              span class="tag is-normal #{@user.locked? ? 'is-danger' : 'is-success'}"
+              span class="tag #{@user.locked? ? 'is-danger' : 'is-success'}"
                 = @user.locked?
     br
       .columns    

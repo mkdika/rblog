@@ -1,6 +1,6 @@
 - replace :title, "Comments"
 - replace :admin_content do
-  .column.is-size-7-mobile
+  .column.is-size-6-mobile
       div
         = link_to 'New', new_comment_path(@comment), class: "button is-primary"
       br
@@ -20,6 +20,6 @@
               td
                 = comment.post.title
               td
-                = link_to 'detail', comment_path(comment), class: "button is-info"
+                = link_to 'view', comment_path(comment), class: "button is-info is-small"
       | Size:  
       b = @comments.size
