@@ -1,10 +1,8 @@
 = extends :application do
   = render 'shared/header'
   section.section
-    .columns.is-mobile
-      .column.is-full
-        .card
-          .card-content
-            = area :content do
+    .columns.is-tablet
+      .column.is-10.is-offset-1
+        = area :content do
   = render 'shared/footer'
   

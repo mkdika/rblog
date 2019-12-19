@@ -4,19 +4,19 @@
   .section
     .container
       .columns.is-centered
-        .column.is-narrow.has-text-centered.is-three-quarters
-          .title.is-size-4-mobile.is-size-2-desktop.has-text-grey.has-text-weight-light
+        .column.is-narrow.has-text-centered
+          .title.is-size-4-mobile.is-size-2-desktop.has-text-grey
             = @post.title
           .subtitle.is-size-7-mobile.is-size-6-desktop.has-text-weight-light
             span.icon.is-small
               i.fa.fa-calendar
             | &nbsp;
             = @post.release_date.strftime("%Y-%-m-%-d %H:%M")
-            | &nbsp;&nbsp;&nbsp;
+            br
             span.icon.is-small
               i.fa.fa-user
             = link_to " #{@post.user.display_name} ", '#'
-            | &nbsp;&nbsp;&nbsp;
+            br
             span.icon.is-small
               i.fa.fa-tags
             = link_to ' Category', '#' 
@@ -26,15 +26,11 @@
               - if i < (@post.tags.size - 1)
                 | &nbsp;.&nbsp;
   br
-  .section
-    .container
-      .colums.is-centered.is-mobile
-        .column.is-narrow.is-8.is-offset-2.is-size-7-mobile.is-size-5-desktop
-          p
-            .content
-              = @post.content_to_html
-
-  br
+    .colums.is-centered.is-tablet
+      .column.is-size-6-mobile.is-size-5-desktop.is-8.is-offset-2
+        p
+          .content
+            = @post.content_to_html
   div class='section' id='comment_form'
     .container
       .columns
@@ -70,7 +66,7 @@
                   p.help.is-danger
                     = flash[:recaptcha_error]
             div
-              = f.submit "Submit comment", class: "button is-primary is-rounded"
+              = f.submit "Submit comment", class: "button is-primary"
   div class='section' id='comment_list'
     .container
       .columns
