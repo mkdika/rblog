@@ -10,12 +10,22 @@
 Yet another simple Ruby on Rails 5 (RoR) blog application.
 This is my RoR full stack web development learning project & example, including its automatic CI/CD setup and cloud platform deployment.
 
+## Screenshots
+
+### Front page
+![Imgur](https://i.imgur.com/Wp8uefN.png)
+
+### Admin page
+![Imgur](https://i.imgur.com/uB99cya.png)
+
 ## This project use
 
 - [Ruby 2.6.5](https://www.ruby-lang.org/en/)
 - [Ruby on Rails 5.2.3](https://rubyonrails.org/), web framework.
 - [Slim Templating 4](http://slim-lang.com/), HTML templating engine.
 - [Devise](https://github.com/plataformatec/devise), flexible authentication solution.
+- [Ruby Recaptcha](https://github.com/ambethia/recaptcha), recaptcha lib.
+- [Paper Trail](https://github.com/paper-trail-gem/paper_trail), Track changes to your rails models.
 - [RSpec Rails 3](https://relishapp.com/rspec/rspec-rails/v/3-9/docs), BDD and test suite.
 - [Faker](https://github.com/faker-ruby/faker), A library for generating fake data such as names, addresses, and phone numbers.
 - [Factory Bot Rails](https://github.com/thoughtbot/factory_bot_rails), a library for setting up Ruby objects as test data.
@@ -31,11 +41,14 @@ This is my RoR full stack web development learning project & example, including 
 
 ## Blog Features
 
-- Multi user login, forget password recory, etc.
-- Post blog, with category, tags, comments.
-- Mobile first view.
-- Support Internationalization (ID/EN)
+- Multi user login.
+- Post blog, with category, tags, and comments.
+- Multiple resolution responsive view.
 - [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) as blog's content markup language.
+- __Todo:__
+  - [ ] Blog post archive page.
+  - [ ] Setup email account for sending password recovery & instructions.
+  - [ ] Dashboard to view blog post, number of comments, etc.
 
 ## Online Demo
 
@@ -46,6 +59,42 @@ This is my RoR full stack web development learning project & example, including 
   Demo account: 
   - email: `admin@example.com`
   - password: `admin`
+
+## Running locally
+
+### Environment & requirement provision
+
+We need to have Ruby 2.6.5 or for ease the provisioning we can use Vagrant and this repository [vagrant-ruby-dev](https://github.com/mkdika/vagrant-ruby-dev).
+
+### Environment variable
+
+There are several env variable should be config prior running apps:
+
+- `DATABASE_USERNAME`, database username.
+- `DATABASE_PASSWORD`, database password.
+- `DATABASE_HOST`, database host.
+- `DATABASE_PORT`, database port.
+- `DATABASE_URL`, database connection string url.
+- `RECAPTCHA_SITE_KEY`, recaptcha site key, get it from [here](https://www.google.com/recaptcha/intro/v3.html).
+- `RECAPTCHA_SECRET_KEY`, recaptcha secret key.
+
+### Run Rails application
+
+```bash
+rails s
+```
+
+Or if you using and run inside Vagrant.
+
+```bash
+rails s -b 0.0.0.0
+```
+
+### Run all automatic testing
+
+```bash
+rspec
+```
 
 ## Copyright and License
 
