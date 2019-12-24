@@ -43,6 +43,7 @@ This is my RoR full stack web development learning project & example, including 
 
 - Multi user login.
 - Post blog, with category, tags, and comments.
+- Data audit trail & transaction history.
 - Multiple resolution responsive view.
 - [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) as blog's content markup language.
 - __Todo:__
@@ -56,7 +57,7 @@ This is my RoR full stack web development learning project & example, including 
 
   This is from automatic build (CI/CD). Plese visit [https://simple-rblog.herokuapp.com](https://simple-rblog.herokuapp.com)
 
-  Demo account: 
+  Demo account:
   - email: `admin@example.com`
   - password: `admin`
 
@@ -64,7 +65,7 @@ This is my RoR full stack web development learning project & example, including 
 
 ### Environment & requirement provision
 
-We need to have Ruby 2.6.5 or for ease the provisioning we can use Vagrant and this repository [vagrant-ruby-dev](https://github.com/mkdika/vagrant-ruby-dev).
+We need to have Ruby 2.6.5 or for ease the provisioning we can use Vagrant from this repository [vagrant-ruby-dev](https://github.com/mkdika/vagrant-ruby-dev).
 
 ### Environment variable
 
@@ -80,6 +81,26 @@ There are several env variable should be config prior running apps:
 
 ### Run Rails application
 
+Install Rails & dependencies
+
+```bash
+bundle install
+```
+
+Init & setup database
+
+```bash
+rails db:setup
+```
+
+Seed sample data
+
+```bash
+rails db:seed
+```
+
+Run rails app locally
+
 ```bash
 rails s
 ```
@@ -89,6 +110,8 @@ Or if you using and run inside Vagrant.
 ```bash
 rails s -b 0.0.0.0
 ```
+
+Access from [http://localhost:3000](http://localhost:3000)
 
 ### Run all automatic testing
 
