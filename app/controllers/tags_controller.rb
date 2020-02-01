@@ -5,7 +5,7 @@ class TagsController < ApplicationController
 
   def index
     current_user
-    @tags = Tag.order(:id).all
+    @tags = Tag.paginate(page: params[:page], per_page: 10).order('id ASC')
   end
 
   def show

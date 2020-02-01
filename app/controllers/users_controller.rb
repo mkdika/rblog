@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    @users = User.order(:id).all
+    @users = User.paginate(page: params[:page], per_page: 10).order('email ASC')
   end
 
   def show

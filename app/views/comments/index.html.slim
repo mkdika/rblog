@@ -21,5 +21,7 @@
                 = comment.post.title
               td
                 = link_to 'view', comment_path(comment), class: "button is-info is-small"
-      | Size:  
-      b = @comments.size
+      .flickr_pagination
+        = will_paginate @comments, container: false, page_links: false
+        .page_info
+          = page_entries_info @comments

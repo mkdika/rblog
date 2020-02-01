@@ -1,9 +1,16 @@
 user = User.create!(email: 'admin@example.com', password: 'admin', password_confirmation: 'admin', display_name: 'Administrator')
 categories = Category.create [{name: 'Ruby'},{name: 'Java'},{name: 'Kotlin'},
                               {name: 'Agile'},{name: 'Javascript'},{name: 'DevOps'},
-                              {name: 'Golang'},{name: 'Rust'},{name: 'CloudPlatform'}]
+                              {name: 'Golang'},{name: 'Rust'},{name: 'CloudPlatform'},
+                              {name: 'Elm'},{name: 'Scala'},{name: 'Haskel'}
+                            ]
 
-tags = Tag.create [{name: 'tutorial'},{name: 'poc'},{name: 'back-end'}, {name: 'event'}, {name: 'front-end'}]
+tags = Tag.create [
+  {name: 'tutorial'},{name: 'poc'},{name: 'back-end'},
+  {name: 'event'}, {name: 'front-end'},{name: 'refactoring'},
+  {name: 'system-design'},{name: 'performance'},{name: 'architecture'},
+  {name: 'algorithm'},{name: 'networking'},{name: 'security'}
+]
 
 sample_post_content = <<DATA
 ## Lorem ipsum dolor sit amet consectetur adipiscing elit.

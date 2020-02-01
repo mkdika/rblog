@@ -15,5 +15,7 @@
                 = tag.name
               td
                 = link_to 'view', tag_path(tag), class: "button is-info is-small"
-      | Size:  
-      b = @tags.size
+      .flickr_pagination
+        = will_paginate @tags, container: false, page_links: false
+        .page_info
+          = page_entries_info @tags

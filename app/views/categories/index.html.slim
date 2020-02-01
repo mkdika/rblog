@@ -15,5 +15,7 @@
                 = category.name
               td
                 = link_to 'view', category_path(category), class: "button is-info is-small"
-      | Size:  
-      b = @categories.size
+      .flickr_pagination
+        = will_paginate @categories, container: false, page_links: false
+        .page_info
+          = page_entries_info @categories

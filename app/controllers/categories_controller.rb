@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    @categories = Category.order(:id).all
+    @categories = Category.paginate(page: params[:page], per_page: 10).order('id ASC')
   end
 
   def show
@@ -24,7 +24,7 @@ class CategoriesController < ApplicationController
     category.destroy
     redirect_to categories_path, notice: "Category '#{category.name}' has deleted"
   end
-  
+
   def create
     @category = Category.new category_params
     if @category.save

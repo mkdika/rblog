@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    @comments = Comment.order('created_at DESC').all
+    @comments = Comment.paginate(page: params[:page], per_page: 10).order('id ASC')
   end
 
   def show
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     comment.destroy
     redirect_to comments_path, notice: "Comment id:#{comment.id} for Post:'#{comment.post.title}' has deleted"
   end
-  
+
   def create
     @comment = Comment.new comment_params
     if @comment.save

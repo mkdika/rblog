@@ -19,5 +19,7 @@
                   = user.locked?
               td
                 = link_to 'view', user_path(user), class: "button is-info is-small"
-      | Size:  
-      b = @users.size
+      .flickr_pagination
+        = will_paginate @users, container: false, page_links: false
+        .page_info
+          = page_entries_info @users

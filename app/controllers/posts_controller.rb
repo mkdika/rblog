@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   layout 'mainadmin'
-  
+
   before_action :authenticate_user!, :set_paper_trail_whodunnit
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    @posts = Post.order(:id).all
+    @posts = Post.paginate(page: params[:page], per_page: 10).order('id ASC')
   end
 
   def show

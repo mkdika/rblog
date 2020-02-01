@@ -22,5 +22,7 @@
                  = post.release
               td
                 = link_to 'view', post_path(post), class: "button is-info is-small"
-      | Size:  
-      b = @posts.size
+      .flickr_pagination
+        = will_paginate @posts, container: false, page_links: false
+        .page_info
+          = page_entries_info @posts

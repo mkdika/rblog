@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   include MarkdownHelper
 
   has_paper_trail
-  
+
   belongs_to :category
   belongs_to :user
   has_many :taggings
@@ -25,8 +25,8 @@ class Post < ApplicationRecord
   end
 
   def self.all_release
-    release_post = Post.order('release_date DESC').where(release: true)
-    release_post.map do |p|
+    release_post = Post.where(release: true).order('release_date DESC')
+    posts = release_post.map do |p|
       {
         'title' => p.title,
         'permalink' => p.permalink,

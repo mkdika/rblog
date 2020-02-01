@@ -1,25 +1,29 @@
 - replace :title, "Home"
 - replace :content do
-  - unless @all_release_post.any?
+  - unless @release_posts.any?
     h1.title.is-size-6-mobile.is-size-4-desktop.has-text-grey-light.has-text-centered
       br
       | No post data ;(
       br
       br
   - else
-    - @all_release_post.each do |post|
+    - @release_posts.each do |post|
       h1.title.is-size-6-mobile.is-size-4-desktop
-        = link_to "#{post['title']}", post_by_permalink_path(post['permalink'])
+        = link_to "#{post.title}", post_by_permalink_path(post.permalink)
       h2.subtitle.is-size-7-mobile.is-size-6-desktop.has-text-grey
         span.icon.is-small
           i.fa.fa-calendar
         | &nbsp;
-        = post['release_date'].strftime("%Y-%-m-%-d %H:%M")
+        = post.release_date.strftime("%Y-%-m-%-d %H:%M")
         | &nbsp;&nbsp;&nbsp;
         span.icon.is-small.has-text-weight-light
           i.fa.fa-tags
-        = link_to " #{post['category']['name']}",'#'
+        = link_to " #{post.category.name}",'#'
         | &nbsp;&nbsp;&nbsp;
         span.icon.is-small.has-text-weight-light
           i.fa.fa-user
-        = link_to " #{post['user']['display_name']} ", '#'
+        = link_to " #{post.user.display_name} ", '#'
+    .flickr_pagination
+      = will_paginate @release_posts, container: false, page_links: false
+      .page_info
+        = page_entries_info @release_posts

@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   layout 'main'
 
   def index
-    @all_release_post = Post.all_release
+    @release_posts = Post.paginate(page: params[:page], per_page: 10).order('release_date DESC')
   end
 
   def post
