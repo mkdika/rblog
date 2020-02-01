@@ -1,19 +1,30 @@
-User.create!(email: 'admin@example.com', password: 'admin', password_confirmation: 'admin', display_name: 'Administrator')
+user = User.create!(email: 'admin@example.com', password: 'admin', password_confirmation: 'admin', display_name: 'Administrator')
+categories = Category.create [{name: 'Ruby'},{name: 'Java'},{name: 'Kotlin'},
+                              {name: 'Agile'},{name: 'Javascript'},{name: 'DevOps'},
+                              {name: 'Golang'},{name: 'Rust'},{name: 'CloudPlatform'}]
 
-categories = Category.create [{name: 'Ruby'}, {name: 'Java'}, {name: 'Kotlin'}]
+tags = Tag.create [{name: 'tutorial'},{name: 'poc'},{name: 'back-end'}, {name: 'event'}, {name: 'front-end'}]
 
-tags = Tag.create [{name: 'tutorial'},{name: 'poc'},{name: 'back-end'}, {name: 'event'}] 
+# Create sample post
+posts = []
+(1..20).each do |i|
+  post = Post.new.tap do |p|
+    p.title = Faker::Book.unique.title
+    p.content = Faker::Books::Dune.quote
+    p.category = categories.sample
+    p.user = user
+    p.release = true
+    p.release_date = DateTime.now
+    p.save
+  end
+  posts << post
+end
 
-post1 = Post.new title: 'Basic Ruby Tutorial', content: "## Hello World example\r`puts 'Hello World'`", category: Category.first, user: User.first, release: true, release_date: DateTime.now
-post1.save
+# Create sample tags
+(1..10).each do |i|
+  tag = Tagging.new post: posts.sample, tag: tags.sample
+  tag.save
+end
 
-post2 = Post.new title: 'Kotlin Conf 2019', content: "# Kotlinconf 2019\r>Copenhagen, Denmark", category: Category.last, user: User.first, release: true, release_date: DateTime.now
-post2.save
-
-tags1 = Tagging.create post: post1, tag: tags.first
-tags2 = Tagging.create post: post1, tag: tags.last
-
-tags3 = Tagging.create post: post2, tag: tags.last
-
-comment1 = Comment.new name: 'Maikel', email: 'mkdika@gmail.com', content: 'Good posting!', post: post1
+comment1 = Comment.new name: 'Maikel', email: 'mkdika@gmail.com', content: 'Good posting!', post: posts.first
 comment1.save

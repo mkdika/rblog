@@ -14,5 +14,5 @@
 //= require activestorage
 //= require turbolinks
 //= require bulma-extensions
-//= require jquery
+//= require jquery3
 //= require_tree .
