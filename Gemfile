@@ -35,7 +35,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'database_cleaner'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'pry'
   gem 'rubocop', '~> 0.76.0', require: false
   gem 'rubocop-performance'
@@ -79,6 +78,7 @@ gem 'bulma-rails', '~> 0.8.0'
 gem 'bulma-extensions-rails'
 gem 'coderay'
 gem 'devise'
+gem 'faker'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'paper_trail'
