@@ -1,3 +1,5 @@
+require 'faker'
+
 user = User.create!(email: 'admin@example.com', password: 'admin', password_confirmation: 'admin', display_name: 'Administrator')
 categories = Category.create [{name: 'Ruby'},{name: 'Java'},{name: 'Kotlin'},
                               {name: 'Agile'},{name: 'Javascript'},{name: 'DevOps'},

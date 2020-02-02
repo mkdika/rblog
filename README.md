@@ -26,6 +26,7 @@ This is my RoR full stack web development learning project & example, including 
 - [Devise](https://github.com/plataformatec/devise), flexible authentication solution.
 - [Ruby Recaptcha](https://github.com/ambethia/recaptcha), recaptcha lib.
 - [Paper Trail](https://github.com/paper-trail-gem/paper_trail), Track changes to your rails models.
+- [Will Paginate](https://github.com/mislav/will_paginate), auto pagination from ActiveRecord.
 - [RSpec Rails 3](https://relishapp.com/rspec/rspec-rails/v/3-9/docs), BDD and test suite.
 - [Faker](https://github.com/faker-ruby/faker), A library for generating fake data such as names, addresses, and phone numbers.
 - [Factory Bot Rails](https://github.com/thoughtbot/factory_bot_rails), a library for setting up Ruby objects as test data.
