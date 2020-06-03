@@ -83,7 +83,7 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'paper_trail'
 gem 'pluck_to_hash'
-gem 'nestive', '~> 0.5'
+gem 'nestive', '~> 0.6', '>= 0.6.0'
 gem 'redcarpet'
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'slim-rails'
