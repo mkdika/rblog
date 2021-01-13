@@ -84,7 +84,7 @@ gem 'jquery-rails'
 gem 'paper_trail'
 gem 'pluck_to_hash'
 gem 'nestive', '~> 0.5'
-gem 'redcarpet'
+gem 'redcarpet', '>= 3.5.1'
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'slim-rails'
 gem 'will_paginate', '~> 3.1.0'
