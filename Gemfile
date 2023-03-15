@@ -3,15 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
-gem 'rails', '5.2.3'
+gem 'rails', '6.1.7.3'
 gem 'puma', '~> 3.12.2'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.1', '>= 5.1.0'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.9', '>= 2.9.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -50,12 +50,12 @@ group :development do
   gem 'rb-readline'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console', '>= 3.7.0'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '>= 3.29.0'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
@@ -79,11 +79,11 @@ gem 'bulma-extensions-rails'
 gem 'coderay'
 gem 'devise'
 gem 'faker'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '>= 4.7.0.6'
 gem 'jquery-rails'
 gem 'paper_trail'
 gem 'pluck_to_hash'
-gem 'nestive', '~> 0.5'
+gem 'nestive', '~> 0.6', '>= 0.6.0'
 gem 'redcarpet'
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'slim-rails'
