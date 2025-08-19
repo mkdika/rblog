@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
-gem 'rails', '5.2.3'
+gem 'rails', '7.1.5.2'
 gem 'puma', '~> 3.12.2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'sass-rails', '~> 5.0'
@@ -81,7 +81,7 @@ gem 'devise'
 gem 'faker'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
-gem 'paper_trail'
+gem 'paper_trail', '>= 11.0.0'
 gem 'pluck_to_hash'
 gem 'nestive', '~> 0.5'
 gem 'redcarpet'
